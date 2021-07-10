@@ -34,11 +34,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ux-g0-06I">
-                                <rect key="frame" x="97" y="241" width="210" height="88"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ux-g0-06I">
+                                <rect key="frame" x="100" y="288" width="214" height="80"/>
                                 <color key="backgroundColor" red="0.12269271969999999" green="0.2784313725" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Very Interesting Post">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="E2D-l4-CqY"/>
+                                </constraints>
+                                <state key="normal" title="Very Important Post">
                                     <color key="titleColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                                 </state>
                                 <state key="highlighted">
@@ -52,6 +54,11 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="EUF-Pn-eyp"/>
                         <color key="backgroundColor" red="0.77647058820000003" green="0.2784313725" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="7Ux-g0-06I" firstAttribute="top" secondItem="EUF-Pn-eyp" secondAttribute="top" constant="200" id="8PG-uy-51E"/>
+                            <constraint firstItem="EUF-Pn-eyp" firstAttribute="trailing" secondItem="7Ux-g0-06I" secondAttribute="trailing" constant="100" id="Gtw-dF-pSi"/>
+                            <constraint firstItem="7Ux-g0-06I" firstAttribute="leading" secondItem="EUF-Pn-eyp" secondAttribute="leading" constant="100" id="dQp-og-K9L"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Feed" id="9nc-Sx-pEk"/>
                 </viewController>
@@ -67,13 +74,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="36ca24fbee042c363d8ce0b06f91f015" translatesAutoresizingMaskIntoConstraints="NO" id="ozV-vq-yTD">
-                                <rect key="frame" x="87" y="330" width="240" height="237"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="36ca24fbee042c363d8ce0b06f91f015" translatesAutoresizingMaskIntoConstraints="NO" id="ozV-vq-yTD">
+                                <rect key="frame" x="20" y="261" width="374" height="374"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="sja-5v-xwx"/>
                         <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                        <constraints>
+                            <constraint firstItem="sja-5v-xwx" firstAttribute="trailing" secondItem="ozV-vq-yTD" secondAttribute="trailing" constant="20" id="5Mk-CC-bQs"/>
+                            <constraint firstItem="ozV-vq-yTD" firstAttribute="centerY" secondItem="wMu-Be-geU" secondAttribute="centerY" id="Q7S-XF-iuk"/>
+                            <constraint firstItem="ozV-vq-yTD" firstAttribute="leading" secondItem="sja-5v-xwx" secondAttribute="leading" constant="20" id="ZyP-PX-vbP"/>
+                            <constraint firstItem="ozV-vq-yTD" firstAttribute="centerX" secondItem="wMu-Be-geU" secondAttribute="centerX" id="gco-ao-Vmf"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hFy-2u-dl3">
                         <barButtonItem key="rightBarButtonItem" title="Alert" image="exclamationmark.triangle" catalog="system" id="L5R-X8-xtJ">
@@ -95,11 +107,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gUM-s6-oBP">
-                                <rect key="frame" x="131" y="156" width="153" height="294"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gUM-s6-oBP">
+                                <rect key="frame" x="132" y="376" width="150" height="90"/>
                                 <color key="backgroundColor" red="0.6148123741" green="0.1017967239" blue="0.1002308354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Button"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="2vm-AV-KNP"/>
+                                    <constraint firstAttribute="height" constant="90" id="V49-3k-FkM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <state key="normal" title="НАЖМИ НА МЕНЯ">
+                                    <color key="titleColor" systemColor="opaqueSeparatorColor"/>
+                                </state>
                                 <connections>
                                     <action selector="alertCallAction:" destination="OGV-5C-pcE" eventType="touchUpInside" id="C8k-Ua-gcE"/>
                                 </connections>
@@ -107,6 +125,12 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bBH-bu-GlU"/>
                         <color key="backgroundColor" systemColor="systemYellowColor"/>
+                        <constraints>
+                            <constraint firstItem="gUM-s6-oBP" firstAttribute="centerY" secondItem="T26-Ax-kBI" secondAttribute="centerY" id="BNE-SG-DvQ"/>
+                            <constraint firstItem="gUM-s6-oBP" firstAttribute="centerX" secondItem="T26-Ax-kBI" secondAttribute="centerX" id="Q7a-6h-WGX"/>
+                            <constraint firstItem="gUM-s6-oBP" firstAttribute="centerY" secondItem="T26-Ax-kBI" secondAttribute="centerY" id="aXE-0y-cj1"/>
+                            <constraint firstItem="gUM-s6-oBP" firstAttribute="centerX" secondItem="T26-Ax-kBI" secondAttribute="centerX" id="ebd-xO-2eY"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="byJ-WV-bJP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -169,6 +193,9 @@
         <image name="exclamationmark.triangle" catalog="system" width="128" height="112"/>
         <image name="list.bullet.indent" catalog="system" width="128" height="74"/>
         <image name="person" catalog="system" width="128" height="117"/>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
