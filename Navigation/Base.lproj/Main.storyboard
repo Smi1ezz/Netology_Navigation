@@ -74,9 +74,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ozV-vq-yTD">
-                                <rect key="frame" x="20" y="316" width="374" height="264"/>
-                                <string key="image">gratis-png-ilustracion-de-pulsador-rojo-paquete-de-aplicacion-de-android-aplicacion-movil-del-paquete-de-aplicaciones-boton-rojo</string>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="36ca24fbee042c363d8ce0b06f91f015" translatesAutoresizingMaskIntoConstraints="NO" id="ozV-vq-yTD">
+                                <rect key="frame" x="20" y="260.5" width="374" height="375"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="sja-5v-xwx"/>
@@ -190,10 +189,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="36ca24fbee042c363d8ce0b06f91f015" width="375" height="375"/>
         <image name="exclamationmark.triangle" catalog="system" width="128" height="112"/>
-        <image width="445" height="264">
-            <string key="name">gratis-png-ilustracion-de-pulsador-rojo-paquete-de-aplicacion-de-android-aplicacion-movil-del-paquete-de-aplicaciones-boton-rojo</string>
-        </image>
         <image name="list.bullet.indent" catalog="system" width="128" height="74"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <systemColor name="opaqueSeparatorColor">
