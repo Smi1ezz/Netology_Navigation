@@ -16,24 +16,17 @@ class ProfileViewController: UIViewController {
         view.backgroundColor = .lightGray
 
     }
-    
-    private func setupViews() {
-        
-        
-        view.addSubview(profileHeader)
-        
-        
-        profileHeader.frame = view.frame
-//        profileHeader.backgroundColor = .blue
-
-    }
    
     override func viewWillLayoutSubviews() {
         setupViews()
         
-        
     }
     
+    private func setupViews() {
+        
+        view.addSubview(profileHeader)
+        profileHeader.frame = view.frame
 
-
+    }
+    
 }

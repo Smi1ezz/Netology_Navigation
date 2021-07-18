@@ -31,9 +31,9 @@ class ProfileHeaderView: UIView {
         nameLabel.text = "Эдвард-Руки-Ножницы"
         nameLabel.textColor = .black
         nameLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
-        nameLabel.numberOfLines = 0
+        nameLabel.numberOfLines = 1
         nameLabel.textAlignment = .left
-        nameLabel.backgroundColor = .yellow
+        
         return nameLabel
     }()
     
@@ -43,7 +43,7 @@ class ProfileHeaderView: UIView {
         statusTextField.placeholder = "Вставь умную мысль"
         statusTextField.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         statusTextField.textColor = .gray
-        statusTextField.backgroundColor = .green
+        
         return statusTextField
     }()
     
@@ -53,16 +53,31 @@ class ProfileHeaderView: UIView {
         showStatusButton.backgroundColor = .blue
         showStatusButton.setTitle("Show status", for: .normal)
         showStatusButton.setTitleColor(.white, for: .normal)
+        showStatusButton.addTarget(self, action: #selector(printStatusAction), for: .touchUpInside)
+        
         return showStatusButton
     }()
     
-    override func layoutSubviews() {
-        nameLabel.frame = CGRect(x: 16 + bounds.width/3 + 10, y: safeAreaInsets.top + 27, width: bounds.width - (bounds.width/3 + 16 + 10 + 16), height: nameLabel.font.lineHeight)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         
-        avatarImageView.frame = CGRect(x: 16, y: safeAreaInsets.top + 16, width: bounds.width/3, height: bounds.width/3)
+        addSubview(nameLabel)
+        addSubview(avatarImageView)
+        addSubview(statusTextField)
+        addSubview(showStatusButton)
+    
+    }
+    
+    override func layoutSubviews() {
+        
+        let avatarSize = bounds.width/3
+        
+        nameLabel.frame = CGRect(x: 16 + avatarSize + 10, y: safeAreaInsets.top + 27, width: bounds.width - (bounds.width/3 + 16 + 10 + 16), height: nameLabel.font.lineHeight)
+        
+        avatarImageView.frame = CGRect(x: 16, y: safeAreaInsets.top + 16, width: avatarSize, height: avatarSize)
         avatarImageView.layer.cornerRadius = avatarImageView.bounds.width/2
         
-        statusTextField.frame = CGRect(x: 16 + bounds.width/3 + 10, y: avatarImageView.frame.maxY - 18 - (statusTextField.font?.lineHeight ?? 30), width: bounds.width - (bounds.width/3 + 16 + 10 + 16), height: statusTextField.font?.lineHeight ?? 30)
+        statusTextField.frame = CGRect(x: 16 + avatarSize + 10, y: avatarImageView.frame.maxY - 18 - (statusTextField.font?.lineHeight ?? 30), width: bounds.width - (avatarSize + 16 + 10 + 16), height: statusTextField.font?.lineHeight ?? 30)
         
         showStatusButton.frame = CGRect(x: 16, y: statusTextField.frame.maxY + 34, width: bounds.width - 32, height: 50)
         showStatusButton.layer.cornerRadius = 4
@@ -72,22 +87,18 @@ class ProfileHeaderView: UIView {
         showStatusButton.layer.shadowColor = UIColor.black.cgColor
         showStatusButton.layer.shadowOpacity = 0.7
 
-        print(avatarImageView.bounds.height + avatarImageView.frame.minY)
-        print(avatarImageView.frame.maxY)
     }
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        addSubview(nameLabel)
-        addSubview(avatarImageView)
-        addSubview(statusTextField)
-        addSubview(showStatusButton)
-        
-
-        
-     
+    @objc func printStatusAction() {
+        if statusTextField.text != "" {
+            print("\(String(describing: statusTextField.text!))")
+        } else if statusTextField.placeholder != nil {
+            print("\(String(describing: statusTextField.placeholder!))")
+        } else if statusTextField.placeholder == nil {
+            print("Пустовато тут. Даже плейсхолдера нет")
+        }
     }
+    
 }
 
 
