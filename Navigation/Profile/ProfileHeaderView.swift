@@ -13,7 +13,6 @@ class ProfileHeaderView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     let avatarImageView: UIImageView = {
         let avatarImageView = UIImageView()
         
@@ -22,6 +21,7 @@ class ProfileHeaderView: UIView {
         avatarImageView.clipsToBounds = true
         avatarImageView.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         avatarImageView.layer.borderWidth = 3
+        
         return avatarImageView
     }()
     
@@ -55,6 +55,13 @@ class ProfileHeaderView: UIView {
         showStatusButton.setTitleColor(.white, for: .normal)
         showStatusButton.addTarget(self, action: #selector(printStatusAction), for: .touchUpInside)
         
+        showStatusButton.layer.cornerRadius = 4
+        showStatusButton.layer.shadowRadius = 4
+        showStatusButton.layer.shadowOffset.width = 4
+        showStatusButton.layer.shadowOffset.height = 4
+        showStatusButton.layer.shadowColor = UIColor.black.cgColor
+        showStatusButton.layer.shadowOpacity = 0.7
+        
         return showStatusButton
     }()
     
@@ -65,37 +72,60 @@ class ProfileHeaderView: UIView {
         addSubview(avatarImageView)
         addSubview(statusTextField)
         addSubview(showStatusButton)
-    
+        
     }
     
     override func layoutSubviews() {
         
-        let avatarSize = bounds.width/3
+        print("header layout")
+        print(avatarImageView.frame.width)
         
-        nameLabel.frame = CGRect(x: 16 + avatarSize + 10, y: safeAreaInsets.top + 27, width: bounds.width - (bounds.width/3 + 16 + 10 + 16), height: nameLabel.font.lineHeight)
+        avatarImageView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            avatarImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
+            avatarImageView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            avatarImageView.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor, multiplier: 0.2),
+            avatarImageView.heightAnchor.constraint(equalTo: avatarImageView.widthAnchor)
+            
+        ])
         
-        avatarImageView.frame = CGRect(x: 16, y: safeAreaInsets.top + 16, width: avatarSize, height: avatarSize)
-        avatarImageView.layer.cornerRadius = avatarImageView.bounds.width/2
+        nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            nameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 10),
+            nameLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            nameLabel.topAnchor.constraint(equalTo: avatarImageView.topAnchor, constant: 11)
+        ])
         
-        statusTextField.frame = CGRect(x: 16 + avatarSize + 10, y: avatarImageView.frame.maxY - 18 - (statusTextField.font?.lineHeight ?? 30), width: bounds.width - (avatarSize + 16 + 10 + 16), height: statusTextField.font?.lineHeight ?? 30)
+        statusTextField.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            statusTextField.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
+            statusTextField.trailingAnchor.constraint(equalTo: nameLabel.trailingAnchor),
+            statusTextField.bottomAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant:  -18)
+        ])
         
-        showStatusButton.frame = CGRect(x: 16, y: statusTextField.frame.maxY + 34, width: bounds.width - 32, height: 50)
-        showStatusButton.layer.cornerRadius = 4
-        showStatusButton.layer.shadowRadius = 4
-        showStatusButton.layer.shadowOffset.width = 4
-        showStatusButton.layer.shadowOffset.height = 4
-        showStatusButton.layer.shadowColor = UIColor.black.cgColor
-        showStatusButton.layer.shadowOpacity = 0.7
+        showStatusButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            showStatusButton.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 16),
+            showStatusButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            showStatusButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            showStatusButton.heightAnchor.constraint(equalToConstant: 50)
+        ])
+        
+        avatarImageView.layer.cornerRadius = avatarImageView.frame.width/2
+        //не получается посчитать правильные скругления углов при повороте экрана. Не пойму в каком месте актуальные размеры avatarImageView. при повороте, кажется, он использует размеры предыдущего изображения. Пожвлуйста скажите, где ошибка. Сделал всю работу меньше, чем за час, а с этим бьюсь уже больше 3х часов.
 
     }
     
     @objc func printStatusAction() {
-        if statusTextField.text != "" {
-            print("\(String(describing: statusTextField.text!))")
-        } else if statusTextField.placeholder != nil {
-            print("\(String(describing: statusTextField.placeholder!))")
-        } else if statusTextField.placeholder == nil {
-            print("Пустовато тут. Даже плейсхолдера нет")
+        if let statusText = statusTextField.text {
+            guard statusText != "" else {
+                if let placeholderText = statusTextField.placeholder {
+                    return print("\(placeholderText)")
+                } else {
+                    return print("Пустовато тут. Даже плейсхолдера нет")
+                }
+            }
+            return print("\(statusText)")
         }
     }
     
