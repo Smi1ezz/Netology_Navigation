@@ -15,7 +15,12 @@ class FeedViewController: UIViewController {
         
     }
     
-    @IBAction func pressButton(_ sender: Any) {
+    @IBAction func pressToSeePost(_ sender: Any) {
+        print("ты увидел очень важный пост")
+        
+    }
+    
+    @IBAction func pressToSeePost2(_ sender: Any) {
         print("ты увидел очень важный пост")
     }
     
@@ -26,7 +31,7 @@ class FeedViewController: UIViewController {
     var veryImportantPost = Post(title: "Very important post")
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard segue.identifier == "importantPost" else {
+        guard segue.identifier == "fisrtButtonSeque" else {
             return
         }
         let postController = segue.destination

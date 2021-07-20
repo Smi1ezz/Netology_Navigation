@@ -34,37 +34,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ux-g0-06I">
-                                <rect key="frame" x="100" y="288" width="190" height="80"/>
-                                <color key="backgroundColor" red="0.12269271969999999" green="0.2784313725" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="E2D-l4-CqY"/>
-                                </constraints>
-                                <state key="normal" title="Very Important Post">
-                                    <color key="titleColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
-                                </state>
-                                <state key="highlighted">
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
-                                </state>
-                                <connections>
-                                    <action selector="pressButton:" destination="Tq6-wb-6y5" eventType="touchUpInside" id="3Dx-s3-eWO"/>
-                                    <segue destination="dx9-bl-fyt" kind="show" identifier="importantPost" id="SaM-gk-av4"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Wdx-8a-7Zv">
+                                <rect key="frame" x="40" y="387" width="310" height="70"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ax3-Ma-rdN">
+                                        <rect key="frame" x="0.0" y="0.0" width="310" height="30"/>
+                                        <color key="backgroundColor" red="0.6148123741" green="0.1017967239" blue="0.1002308354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Tap to see important post">
+                                            <color key="titleColor" systemColor="labelColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="pressToSeePost2:" destination="Tq6-wb-6y5" eventType="touchUpInside" id="pY4-xe-Xea"/>
+                                            <segue destination="dx9-bl-fyt" kind="show" identifier="fisrtButtonSeque" id="0qh-Vv-WoC"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hA0-Q9-77G">
+                                        <rect key="frame" x="0.0" y="40" width="310" height="30"/>
+                                        <color key="backgroundColor" red="0.6148123741" green="0.1017967239" blue="0.1002308354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Tap to see very important post">
+                                            <color key="titleColor" systemColor="labelColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="pressToSeePost:" destination="Tq6-wb-6y5" eventType="touchUpInside" id="Zub-lV-5mu"/>
+                                            <segue destination="dx9-bl-fyt" kind="show" identifier="fisrtButtonSeque" id="HP5-eL-nTh"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="EUF-Pn-eyp"/>
                         <color key="backgroundColor" red="0.77647058820000003" green="0.2784313725" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="7Ux-g0-06I" firstAttribute="top" secondItem="EUF-Pn-eyp" secondAttribute="top" constant="200" id="8PG-uy-51E"/>
-                            <constraint firstItem="EUF-Pn-eyp" firstAttribute="trailing" secondItem="7Ux-g0-06I" secondAttribute="trailing" constant="100" id="Gtw-dF-pSi"/>
-                            <constraint firstItem="7Ux-g0-06I" firstAttribute="leading" secondItem="EUF-Pn-eyp" secondAttribute="leading" constant="100" id="dQp-og-K9L"/>
+                            <constraint firstItem="Wdx-8a-7Zv" firstAttribute="centerX" secondItem="uZh-eU-u2o" secondAttribute="centerX" id="15A-aY-aOc"/>
+                            <constraint firstItem="Wdx-8a-7Zv" firstAttribute="leading" secondItem="EUF-Pn-eyp" secondAttribute="leading" constant="40" id="ZI5-Zb-Dfh"/>
+                            <constraint firstItem="Wdx-8a-7Zv" firstAttribute="centerY" secondItem="uZh-eU-u2o" secondAttribute="centerY" id="sDL-BB-F1D"/>
+                            <constraint firstItem="EUF-Pn-eyp" firstAttribute="trailing" secondItem="Wdx-8a-7Zv" secondAttribute="trailing" constant="40" id="x9i-vL-gVq"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Feed" id="9nc-Sx-pEk"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h7V-db-5GZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="892.75362318840587" y="-774.10714285714278"/>
+            <point key="canvasLocation" x="892.30769230769226" y="-774.17061611374402"/>
         </scene>
         <!--Post View Controller-->
         <scene sceneID="HYX-QQ-o4X">
@@ -188,11 +199,17 @@
             <point key="canvasLocation" x="-120" y="-78"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="HP5-eL-nTh"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="36ca24fbee042c363d8ce0b06f91f015" width="375" height="375"/>
         <image name="exclamationmark.triangle" catalog="system" width="128" height="112"/>
         <image name="list.bullet.indent" catalog="system" width="128" height="74"/>
         <image name="person" catalog="system" width="128" height="117"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
@@ -201,9 +218,6 @@
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="tertiarySystemGroupedBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

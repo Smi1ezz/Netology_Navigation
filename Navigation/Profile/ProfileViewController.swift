@@ -26,8 +26,6 @@ class ProfileViewController: UIViewController {
         
         view.backgroundColor = .lightGray
         
-
-
     }
    
     override func viewWillLayoutSubviews() {
