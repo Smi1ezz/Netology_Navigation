@@ -30,6 +30,13 @@ class ProfileViewController: UIViewController {
    
     override func viewWillLayoutSubviews() {
         setupViews()
+        profileHeader.avatarImageView.layer.cornerRadius = profileHeader.avatarImageView.bounds.width/2
+
+
+    }
+    
+    override func viewDidLayoutSubviews() {
+        profileHeader.avatarImageView.layer.cornerRadius = profileHeader.avatarImageView.bounds.width/2
 
     }
     

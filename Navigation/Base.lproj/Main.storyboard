@@ -168,7 +168,7 @@
         <!--Profile-->
         <scene sceneID="amg-3d-9Sv">
             <objects>
-                <viewController id="nd5-cy-qz7" customClass="ProfileViewController" customModule="Navigation" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileID" id="nd5-cy-qz7" customClass="ProfileViewController" customModule="Navigation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RXT-gs-Hfk">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -179,7 +179,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V2D-8j-RqU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="893" y="-78"/>
+            <point key="canvasLocation" x="1757" y="-78"/>
+        </scene>
+        <!--Log In View Controller-->
+        <scene sceneID="HR4-IL-9d6">
+            <objects>
+                <viewController id="yQ5-hB-bcc" customClass="LogInViewController" customModule="Navigation" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eKy-oU-Qmt">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="kw5-UB-OXM"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="1X9-nO-edU"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i6e-p0-5q3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="892" y="-78"/>
         </scene>
         <!--Profile-->
         <scene sceneID="fnA-lv-kXc">
@@ -191,7 +207,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="nd5-cy-qz7" kind="relationship" relationship="rootViewController" id="PJB-vy-gFs"/>
+                        <segue destination="yQ5-hB-bcc" kind="relationship" relationship="rootViewController" id="jSa-Ou-Ga0"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2GR-lY-CjM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -212,6 +228,9 @@
         </systemColor>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

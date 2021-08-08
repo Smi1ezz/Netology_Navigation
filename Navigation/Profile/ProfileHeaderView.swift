@@ -84,8 +84,8 @@ class ProfileHeaderView: UIView {
         NSLayoutConstraint.activate([
             avatarImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
             avatarImageView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            avatarImageView.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor, multiplier: 0.2),
-            avatarImageView.heightAnchor.constraint(equalTo: avatarImageView.widthAnchor)
+            avatarImageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.2),
+            avatarImageView.heightAnchor.constraint(equalTo: avatarImageView.widthAnchor),
             
         ])
         
@@ -111,7 +111,7 @@ class ProfileHeaderView: UIView {
             showStatusButton.heightAnchor.constraint(equalToConstant: 50)
         ])
         
-        avatarImageView.layer.cornerRadius = avatarImageView.frame.width/2
+//        avatarImageView.layer.cornerRadius = avatarImageView.frame.width/2
         //не получается посчитать правильные скругления углов при повороте экрана. Не пойму в каком месте актуальные размеры avatarImageView. при повороте, кажется, он использует размеры предыдущего изображения. Пожвлуйста скажите, где ошибка. Сделал всю работу меньше, чем за час, а с этим бьюсь уже больше 3х часов. Пытался перенести во viewController в viewDidAppear - лучше, но в панарамном режиме все равно не круг...
 
     }
