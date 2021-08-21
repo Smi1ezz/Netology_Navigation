@@ -48,8 +48,6 @@ class LogInViewController: UIViewController {
         return entranceStackView
     }()
     
-    
-    
     let loginButton: UIButton = {
         let loginButton = UIButton()
         loginButton.setBackgroundImage(#imageLiteral(resourceName: "blue_pixel"), for: .normal)
@@ -64,31 +62,65 @@ class LogInViewController: UIViewController {
         
         return loginButton
     }()
-        
+    
+    let scrollView = UIScrollView()
+    let containerView = UIView()
+    
         
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         navigationController?.navigationBar.isHidden = true
+        scrollView.backgroundColor = .green
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.keyboardDismissMode = .onDrag
+        containerView.translatesAutoresizingMaskIntoConstraints = false
         
-        setupViews()
-    }
-    
-    private func setupViews() {
-        view.addSubview(vkLogoImageView)
-        view.addSubview(entranceStackView)
-        view.addSubview(loginButton)
         entranceStackView.addArrangedSubview(loginTextField)
         entranceStackView.addArrangedSubview(passTextField)
+        scrollView.addSubview(containerView)
+        containerView.addSubview(vkLogoImageView)
+        containerView.addSubview(entranceStackView)
+        containerView.addSubview(loginButton)
         
+        view.addSubview(scrollView)
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification , object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            scrollView.contentInset.bottom = keyboardSize.height
+            scrollView.verticalScrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
+        }
+        
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        scrollView.contentInset.bottom = .zero
+        scrollView.verticalScrollIndicatorInsets = .zero
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        print(scrollView.contentSize)
+    }
+    
+    override func viewWillLayoutSubviews() {
         vkLogoImageView.backgroundColor = view.backgroundColor
-        NSLayoutConstraint.activate([
-            vkLogoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            vkLogoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 120),
-            vkLogoImageView.widthAnchor.constraint(equalToConstant: 100),
-            vkLogoImageView.heightAnchor.constraint(equalToConstant: 100)
-        ])
-        
         entranceStackView.layer.borderColor = UIColor.lightGray.cgColor
         entranceStackView.layer.borderWidth = 0.5
         entranceStackView.layer.cornerRadius = 10
@@ -98,23 +130,39 @@ class LogInViewController: UIViewController {
         setupEntranceTextField(textField: loginTextField)
         setupEntranceTextField(textField: passTextField)
         
-        NSLayoutConstraint.activate([
-            entranceStackView.topAnchor.constraint(equalTo: vkLogoImageView.bottomAnchor, constant: 120),
-            entranceStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            entranceStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            entranceStackView.heightAnchor.constraint(equalToConstant: 100)
-        ])
-        
         loginButton.addTarget(self, action: #selector(loginAction), for: .touchUpInside)
-
+        
         NSLayoutConstraint.activate([
+            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            
+            containerView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            containerView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            containerView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            containerView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            containerView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            
+            vkLogoImageView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+            vkLogoImageView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 120),
+            vkLogoImageView.widthAnchor.constraint(equalToConstant: 100),
+            vkLogoImageView.heightAnchor.constraint(equalToConstant: 100),
+            
+            entranceStackView.topAnchor.constraint(equalTo: vkLogoImageView.bottomAnchor, constant: 120),
+            entranceStackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16),
+            entranceStackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16),
+            entranceStackView.heightAnchor.constraint(equalToConstant: 100),
+            
             loginButton.topAnchor.constraint(equalTo: entranceStackView.bottomAnchor, constant: 16),
             loginButton.leadingAnchor.constraint(equalTo: entranceStackView.leadingAnchor),
-            loginButton.trailingAnchor.constraint(equalTo: entranceStackView.trailingAnchor)
+            loginButton.trailingAnchor.constraint(equalTo: entranceStackView.trailingAnchor),
+            loginButton.heightAnchor.constraint(equalToConstant: 50),
+            loginButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -24),
+ 
         ])
-       
-        
     }
+    
     
     @objc func loginAction() {
 
@@ -133,13 +181,6 @@ class LogInViewController: UIViewController {
         textField.backgroundColor = .systemGray6
         textField.indent(size: 16)
     }
-    
-    
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
-    
-    
     
 }
 
