@@ -52,7 +52,7 @@ class ProfileTableViewHeaderFooterView: UITableViewHeaderFooterView {
         showStatusButton.setTitleColor(.white, for: .normal)
         showStatusButton.addTarget(self, action: #selector(printStatusAction), for: .touchUpInside)
         
-        showStatusButton.layer.cornerRadius = 4
+        showStatusButton.layer.cornerRadius = 14
         showStatusButton.layer.shadowRadius = 4
         showStatusButton.layer.shadowOffset.width = 4
         showStatusButton.layer.shadowOffset.height = 4
@@ -112,7 +112,7 @@ class ProfileTableViewHeaderFooterView: UITableViewHeaderFooterView {
             showStatusButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             showStatusButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             showStatusButton.heightAnchor.constraint(equalToConstant: 50),
-            showStatusButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 16)
+            showStatusButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16)
         ])
     }
     

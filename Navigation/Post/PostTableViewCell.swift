@@ -14,8 +14,8 @@ class PostTableViewCell: UITableViewCell {
             postLabel.text = post?.author
             postImageView.image = UIImage.init(named: post?.image ?? "logo")
             postDescriptionLabel.text = post?.description
-            likesCounterLabel.text = String(post?.likes ?? 2)
-            viewsCounterLabel.text = String(post?.views ?? 2)
+            likesCounterLabel.text = String("likes: \(post?.likes ?? 2)")
+            viewsCounterLabel.text = String("views: \(post?.views ?? 2)")
         }
     }
     
@@ -30,7 +30,7 @@ class PostTableViewCell: UITableViewCell {
     
     let postImageView: UIImageView = {
         let postImageView = UIImageView()
-        postImageView.backgroundColor = .blue
+        postImageView.backgroundColor = .black
         postImageView.contentMode = .scaleAspectFit
         postImageView.translatesAutoresizingMaskIntoConstraints = false
         return postImageView
@@ -93,24 +93,25 @@ class PostTableViewCell: UITableViewCell {
     func setupConstraints() {
         
         NSLayoutConstraint.activate([
-            postLabel.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor),
+            postLabel.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor, constant: 16),
             postLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             postLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             
-            postImageView.topAnchor.constraint(equalTo: postLabel.bottomAnchor),
+            postImageView.topAnchor.constraint(equalTo: postLabel.bottomAnchor, constant: 12),
             postImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             postImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             postImageView.widthAnchor.constraint(equalTo: contentView.widthAnchor),
             postImageView.heightAnchor.constraint(equalTo: postImageView.heightAnchor),
             
-            postDescriptionLabel.topAnchor.constraint(equalTo: postImageView.bottomAnchor),
+            postDescriptionLabel.topAnchor.constraint(equalTo: postImageView.bottomAnchor, constant: 16),
             postDescriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             postDescriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             
-            likesAndViewsStackView.topAnchor.constraint(equalTo: postDescriptionLabel.bottomAnchor),
+            likesAndViewsStackView.topAnchor.constraint(equalTo: postDescriptionLabel.bottomAnchor, constant: 16),
             likesAndViewsStackView.leadingAnchor.constraint(equalTo: postDescriptionLabel.leadingAnchor),
             likesAndViewsStackView.trailingAnchor.constraint(equalTo: postDescriptionLabel.trailingAnchor),
-            likesCounterLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            likesAndViewsStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 16),
+            likesCounterLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16)
         ])
         
     }

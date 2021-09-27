@@ -19,11 +19,8 @@ class LogInViewController: UIViewController {
     
     let vkLogoImageView: UIImageView = {
         let vkLogoImageView = UIImageView ()
-        
-        vkLogoImageView.backgroundColor = .systemRed
         vkLogoImageView.image = #imageLiteral(resourceName: "logo")
         vkLogoImageView.translatesAutoresizingMaskIntoConstraints = false
-
         return vkLogoImageView
     }()
     
@@ -66,12 +63,10 @@ class LogInViewController: UIViewController {
     let scrollView = UIScrollView()
     let containerView = UIView()
     
-        
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         navigationController?.navigationBar.isHidden = true
-        scrollView.backgroundColor = .green
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.keyboardDismissMode = .onDrag
         containerView.translatesAutoresizingMaskIntoConstraints = false
@@ -168,9 +163,10 @@ class LogInViewController: UIViewController {
 
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let newViewController = storyboard.instantiateViewController(withIdentifier: "ProfileID") as? ProfileViewController {
-//            newViewController.modalTransitionStyle = .crossDissolve // это значение можно менять для разных видов анимации появления
-            newViewController.modalPresentationStyle = .overCurrentContext // это та самая волшебная строка, убрав или закомментировав ее, вы получите появление смахиваемого контроллера
+            
+            newViewController.modalPresentationStyle = .overCurrentContext // если убрать строку,  получится появление смахиваемого контроллера
             present(newViewController, animated: false, completion: nil)
+            
            }
     }
     
