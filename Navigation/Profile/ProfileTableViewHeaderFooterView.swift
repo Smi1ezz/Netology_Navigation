@@ -1,24 +1,21 @@
 //
-//  ProfileHeaderView.swift
+//  ProfileTableViewHeaderFooterView.swift
 //  Navigation
 //
-//  Created by admin on 14.07.2021.
+//  Created by admin on 26.08.2021.
 //
 
-import Foundation
 import UIKit
 
-class ProfileHeaderView: UIView {
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
+class ProfileTableViewHeaderFooterView: UITableViewHeaderFooterView {
+
     let avatarImageView: UIImageView = {
         let avatarImageView = UIImageView()
         
         avatarImageView.image = UIImage(named: "sergejzverev_27")
         avatarImageView.contentMode = .scaleAspectFill
         avatarImageView.clipsToBounds = true
+        avatarImageView.layer.cornerRadius = 150/2
         avatarImageView.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         avatarImageView.layer.borderWidth = 3
         
@@ -65,21 +62,32 @@ class ProfileHeaderView: UIView {
         return showStatusButton
     }()
     
-  
+    override init(reuseIdentifier: String?) {
+            super.init(reuseIdentifier: reuseIdentifier)
+            configureContents()
+        }
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override func layoutSubviews() {
+        super.layoutSubviews()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    func configureContents() {
         
-        addSubview(nameLabel)
-        addSubview(avatarImageView)
-        addSubview(statusTextField)
-        addSubview(showStatusButton)
+        contentView.addSubview(nameLabel)
+        contentView.addSubview(avatarImageView)
+        contentView.addSubview(statusTextField)
+        contentView.addSubview(showStatusButton)
         
         avatarImageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            avatarImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
-            avatarImageView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            avatarImageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.2),
+            avatarImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
+            avatarImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            avatarImageView.widthAnchor.constraint(equalToConstant: 150),
             avatarImageView.heightAnchor.constraint(equalTo: avatarImageView.widthAnchor),
             
         ])
@@ -87,7 +95,7 @@ class ProfileHeaderView: UIView {
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             nameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 10),
-            nameLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             nameLabel.topAnchor.constraint(equalTo: avatarImageView.topAnchor, constant: 11)
         ])
         
@@ -101,24 +109,12 @@ class ProfileHeaderView: UIView {
         showStatusButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             showStatusButton.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 16),
-            showStatusButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            showStatusButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
-            showStatusButton.heightAnchor.constraint(equalToConstant: 50)
+            showStatusButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            showStatusButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            showStatusButton.heightAnchor.constraint(equalToConstant: 50),
+            showStatusButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 16)
         ])
-        
     }
-    
-    override func layoutSubviews() {
-        
-        print("header layout")
-        
-        
-        
-//        avatarImageView.layer.cornerRadius = avatarImageView.frame.width/2
-        //не получается посчитать правильные скругления углов при повороте экрана. Не пойму в каком месте актуальные размеры avatarImageView. при повороте, кажется, он использует размеры предыдущего изображения. Пожвлуйста скажите, где ошибка. Сделал всю работу меньше, чем за час, а с этим бьюсь уже больше 3х часов. Пытался перенести во viewController в viewDidAppear - лучше, но в панарамном режиме все равно не круг...
-
-    }
-    
     
     
     @objc func printStatusAction() {
@@ -133,10 +129,4 @@ class ProfileHeaderView: UIView {
             return print("\(statusText)")
         }
     }
-    
 }
-
-
-
-
-

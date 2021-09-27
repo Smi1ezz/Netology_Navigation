@@ -169,7 +169,7 @@ class LogInViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let newViewController = storyboard.instantiateViewController(withIdentifier: "ProfileID") as? ProfileViewController {
 //            newViewController.modalTransitionStyle = .crossDissolve // это значение можно менять для разных видов анимации появления
-//            newViewController.modalPresentationStyle = .overCurrentContext // это та самая волшебная строка, убрав или закомментировав ее, вы получите появление смахиваемого контроллера
+            newViewController.modalPresentationStyle = .overCurrentContext // это та самая волшебная строка, убрав или закомментировав ее, вы получите появление смахиваемого контроллера
             present(newViewController, animated: false, completion: nil)
            }
     }

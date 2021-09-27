@@ -10,6 +10,10 @@
 		846DCF5F26961BD100C0E16C /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846DCF5E26961BD100C0E16C /* InfoViewController.swift */; };
 		847B4D08269F42E80071522B /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847B4D07269F42E80071522B /* ProfileHeaderView.swift */; };
 		847B4D0A26AD8CBD0071522B /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847B4D0926AD8CBC0071522B /* LogInViewController.swift */; };
+		847B4D0C26D4041C0071522B /* ProfileTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847B4D0B26D4041B0071522B /* ProfileTableHeaderView.swift */; };
+		847B4D0E26D41E560071522B /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847B4D0D26D41E550071522B /* PostTableViewCell.swift */; };
+		847B4D1226D5457A0071522B /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847B4D1126D5457A0071522B /* Storage.swift */; };
+		847B4D1626D805440071522B /* ProfileTableViewHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847B4D1526D805440071522B /* ProfileTableViewHeaderFooterView.swift */; };
 		847FA46D26887D9F008112AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847FA46C26887D9F008112AB /* AppDelegate.swift */; };
 		847FA46F26887D9F008112AB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847FA46E26887D9F008112AB /* SceneDelegate.swift */; };
 		847FA47126887D9F008112AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847FA47026887D9F008112AB /* ViewController.swift */; };
@@ -25,6 +29,10 @@
 		846DCF5E26961BD100C0E16C /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		847B4D07269F42E80071522B /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		847B4D0926AD8CBC0071522B /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		847B4D0B26D4041B0071522B /* ProfileTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableHeaderView.swift; sourceTree = "<group>"; };
+		847B4D0D26D41E550071522B /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		847B4D1126D5457A0071522B /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		847B4D1526D805440071522B /* ProfileTableViewHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewHeaderFooterView.swift; sourceTree = "<group>"; };
 		847FA46926887D9F008112AB /* Navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		847FA46C26887D9F008112AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		847FA46E26887D9F008112AB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,8 +63,27 @@
 				847FA4842688C481008112AB /* ProfileViewController.swift */,
 				847B4D07269F42E80071522B /* ProfileHeaderView.swift */,
 				847B4D0926AD8CBC0071522B /* LogInViewController.swift */,
+				847B4D0B26D4041B0071522B /* ProfileTableHeaderView.swift */,
+				847B4D1526D805440071522B /* ProfileTableViewHeaderFooterView.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		847B4D0F26D41E5B0071522B /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				847FA4872688C529008112AB /* PostViewController.swift */,
+				847B4D0D26D41E550071522B /* PostTableViewCell.swift */,
+			);
+			path = Post;
+			sourceTree = "<group>";
+		};
+		847B4D1026D545640071522B /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				847B4D1126D5457A0071522B /* Storage.swift */,
+			);
+			path = Storage;
 			sourceTree = "<group>";
 		};
 		847FA46026887D9F008112AB = {
@@ -78,6 +105,7 @@
 		847FA46B26887D9F008112AB /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				847B4D1026D545640071522B /* Storage */,
 				847FA46C26887D9F008112AB /* AppDelegate.swift */,
 				847FA46E26887D9F008112AB /* SceneDelegate.swift */,
 				847FA47026887D9F008112AB /* ViewController.swift */,
@@ -87,8 +115,8 @@
 				847FA47A26887DA2008112AB /* Info.plist */,
 				847FA4812688C473008112AB /* FeedViewController.swift */,
 				847B4D06269F3CFF0071522B /* Profile */,
-				847FA4872688C529008112AB /* PostViewController.swift */,
 				846DCF5E26961BD100C0E16C /* InfoViewController.swift */,
+				847B4D0F26D41E5B0071522B /* Post */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -163,10 +191,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				847B4D0E26D41E560071522B /* PostTableViewCell.swift in Sources */,
 				847FA4882688C529008112AB /* PostViewController.swift in Sources */,
 				847FA47126887D9F008112AB /* ViewController.swift in Sources */,
 				847B4D0A26AD8CBD0071522B /* LogInViewController.swift in Sources */,
 				847FA46D26887D9F008112AB /* AppDelegate.swift in Sources */,
+				847B4D1626D805440071522B /* ProfileTableViewHeaderFooterView.swift in Sources */,
+				847B4D1226D5457A0071522B /* Storage.swift in Sources */,
+				847B4D0C26D4041C0071522B /* ProfileTableHeaderView.swift in Sources */,
 				846DCF5F26961BD100C0E16C /* InfoViewController.swift in Sources */,
 				847FA4852688C481008112AB /* ProfileViewController.swift in Sources */,
 				847FA4822688C473008112AB /* FeedViewController.swift in Sources */,

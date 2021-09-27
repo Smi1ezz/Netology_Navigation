@@ -1,14 +1,15 @@
 //
-//  ProfileHeaderView.swift
+//  ProfileTableHeaderView.swift
 //  Navigation
 //
-//  Created by admin on 14.07.2021.
+//  Created by admin on 23.08.2021.
 //
 
 import Foundation
 import UIKit
 
-class ProfileHeaderView: UIView {
+class ProfileTableHeaderView: UIView {
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -65,8 +66,6 @@ class ProfileHeaderView: UIView {
         return showStatusButton
     }()
     
-  
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -75,11 +74,19 @@ class ProfileHeaderView: UIView {
         addSubview(statusTextField)
         addSubview(showStatusButton)
         
+    }
+    
+    override func layoutSubviews() {
+        
+        print("header layout")
+        print(avatarImageView.frame.width)
+        
+        avatarImageView.layer.cornerRadius = avatarImageView.frame.width/2
         avatarImageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             avatarImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
             avatarImageView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            avatarImageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.2),
+            avatarImageView.widthAnchor.constraint(equalToConstant: 150),
             avatarImageView.heightAnchor.constraint(equalTo: avatarImageView.widthAnchor),
             
         ])
@@ -106,20 +113,8 @@ class ProfileHeaderView: UIView {
             showStatusButton.heightAnchor.constraint(equalToConstant: 50)
         ])
         
-    }
-    
-    override func layoutSubviews() {
-        
-        print("header layout")
-        
-        
-        
-//        avatarImageView.layer.cornerRadius = avatarImageView.frame.width/2
-        //не получается посчитать правильные скругления углов при повороте экрана. Не пойму в каком месте актуальные размеры avatarImageView. при повороте, кажется, он использует размеры предыдущего изображения. Пожвлуйста скажите, где ошибка. Сделал всю работу меньше, чем за час, а с этим бьюсь уже больше 3х часов. Пытался перенести во viewController в viewDidAppear - лучше, но в панарамном режиме все равно не круг...
 
     }
-    
-    
     
     @objc func printStatusAction() {
         if let statusText = statusTextField.text {
@@ -136,7 +131,5 @@ class ProfileHeaderView: UIView {
     
 }
 
-
-
-
+    
 
