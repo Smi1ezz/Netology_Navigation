@@ -28,7 +28,7 @@ class ProfileTableViewHeaderFooterView: UITableViewHeaderFooterView {
         nameLabel.text = "Эдвард-Руки-Ножницы"
         nameLabel.textColor = .black
         nameLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
-        nameLabel.numberOfLines = 1
+        nameLabel.numberOfLines = 0
         nameLabel.textAlignment = .left
         
         return nameLabel

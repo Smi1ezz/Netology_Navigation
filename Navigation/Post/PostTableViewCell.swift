@@ -115,5 +115,5 @@ class PostTableViewCell: UITableViewCell {
         ])
         
     }
-
+        
 }

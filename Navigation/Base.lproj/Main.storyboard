@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="D8r-pZ-fgE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="D8r-pZ-fgE">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -63,7 +64,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="EUF-Pn-eyp"/>
-                        <color key="backgroundColor" red="0.77647058820000003" green="0.2784313725" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemGray4Color"/>
                         <constraints>
                             <constraint firstItem="Wdx-8a-7Zv" firstAttribute="centerX" secondItem="uZh-eU-u2o" secondAttribute="centerX" id="15A-aY-aOc"/>
                             <constraint firstItem="Wdx-8a-7Zv" firstAttribute="leading" secondItem="EUF-Pn-eyp" secondAttribute="leading" constant="40" id="ZI5-Zb-Dfh"/>
@@ -135,7 +136,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bBH-bu-GlU"/>
-                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                        <color key="backgroundColor" systemColor="systemGray4Color"/>
                         <constraints>
                             <constraint firstItem="gUM-s6-oBP" firstAttribute="centerY" secondItem="T26-Ax-kBI" secondAttribute="centerY" id="BNE-SG-DvQ"/>
                             <constraint firstItem="gUM-s6-oBP" firstAttribute="centerX" secondItem="T26-Ax-kBI" secondAttribute="centerX" id="Q7a-6h-WGX"/>
@@ -214,9 +215,24 @@
             </objects>
             <point key="canvasLocation" x="-120" y="-78"/>
         </scene>
+        <!--Photogallery-->
+        <scene sceneID="X7E-mC-I9t">
+            <objects>
+                <viewController storyboardIdentifier="PhotogalleryViewController" title="Photogallery" id="bvX-ua-Odv" customClass="PhotogalleryViewController" customModule="Navigation" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HAm-dl-Kqm">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="MgE-Tl-JCG"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="beA-aH-ebP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2695" y="-78"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="HP5-eL-nTh"/>
+        <segue reference="0qh-Vv-WoC"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="36ca24fbee042c363d8ce0b06f91f015" width="375" height="375"/>
@@ -232,11 +248,11 @@
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemYellowColor">
-            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

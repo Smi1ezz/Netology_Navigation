@@ -66,7 +66,7 @@ class LogInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        navigationController?.navigationBar.isHidden = true
+//        navigationController?.navigationBar.isHidden = true
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.keyboardDismissMode = .onDrag
         containerView.translatesAutoresizingMaskIntoConstraints = false
@@ -163,9 +163,9 @@ class LogInViewController: UIViewController {
 
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let newViewController = storyboard.instantiateViewController(withIdentifier: "ProfileID") as? ProfileViewController {
-            
-            newViewController.modalPresentationStyle = .overCurrentContext // если убрать строку,  получится появление смахиваемого контроллера
-            present(newViewController, animated: false, completion: nil)
+            navigationController?.pushViewController(newViewController, animated: true)
+//            newViewController.modalPresentationStyle = .overCurrentContext // если убрать строку,  получится появление смахиваемого контроллера
+//            present(newViewController, animated: false, completion: nil)
             
            }
     }
