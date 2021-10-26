@@ -120,10 +120,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gUM-s6-oBP">
-                                <rect key="frame" x="120" y="350" width="150" height="90"/>
+                                <rect key="frame" x="30" y="350" width="330" height="90"/>
                                 <color key="backgroundColor" red="0.6148123741" green="0.1017967239" blue="0.1002308354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="2vm-AV-KNP"/>
                                     <constraint firstAttribute="height" constant="90" id="V49-3k-FkM"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
@@ -138,10 +137,10 @@
                         <viewLayoutGuide key="safeArea" id="bBH-bu-GlU"/>
                         <color key="backgroundColor" systemColor="systemGray4Color"/>
                         <constraints>
+                            <constraint firstItem="gUM-s6-oBP" firstAttribute="leading" secondItem="bBH-bu-GlU" secondAttribute="leading" constant="30" id="4WS-UM-x9T"/>
+                            <constraint firstItem="bBH-bu-GlU" firstAttribute="trailing" secondItem="gUM-s6-oBP" secondAttribute="trailing" constant="30" id="7Ku-Na-g6R"/>
                             <constraint firstItem="gUM-s6-oBP" firstAttribute="centerY" secondItem="T26-Ax-kBI" secondAttribute="centerY" id="BNE-SG-DvQ"/>
-                            <constraint firstItem="gUM-s6-oBP" firstAttribute="centerX" secondItem="T26-Ax-kBI" secondAttribute="centerX" id="Q7a-6h-WGX"/>
                             <constraint firstItem="gUM-s6-oBP" firstAttribute="centerY" secondItem="T26-Ax-kBI" secondAttribute="centerY" id="aXE-0y-cj1"/>
-                            <constraint firstItem="gUM-s6-oBP" firstAttribute="centerX" secondItem="T26-Ax-kBI" secondAttribute="centerX" id="ebd-xO-2eY"/>
                         </constraints>
                     </view>
                 </viewController>
