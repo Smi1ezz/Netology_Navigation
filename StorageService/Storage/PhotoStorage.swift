@@ -8,14 +8,14 @@
 import UIKit
 import Foundation
 
-struct Photo {
-    let label: String
-    let image: String
-    let images: [String]
+public struct Photo {
+    public let label: String
+    public let image: String
+    public let images: [String]
 }
 
-struct Photogallery {
-    static let photos: [Photo] = [
+public struct Photogallery {
+    public static let photos: [Photo] = [
         Photo(label: "ph1", image: "ph1", images: hz),
         Photo(label: "ph2", image: "ph2", images: hz),
         Photo(label: "ph3", image: "ph3", images: hz),

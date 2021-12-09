@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-struct Post {
+public struct Post {
     let author: String
     let description: String
     let image: String //имя картинки из каталога
@@ -16,8 +16,8 @@ struct Post {
     let views: Int
 }
 
-struct Storage {
-    static let posts:[Post] = [
+public struct Storage {
+    public static let posts:[Post] = [
         Post(author: "GROB",
              description: "Советская и российская рок-группа, основанная 8 ноября 1984 года в Омске Егором Летовым и Константином Рябиновым, наиболее заметная представительница сибирского панк-рока.",
              image: "GROB",

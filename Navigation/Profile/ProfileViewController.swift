@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import StorageService
 
 class ProfileViewController: UIViewController {
     
@@ -15,9 +16,14 @@ class ProfileViewController: UIViewController {
          
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .lightGray
         navigationController?.navigationBar.isHidden = true
         setupTableView()
+        
+        #if DEBUG
+            view.backgroundColor = .lightGray
+        #else
+            view.backgroundColor = .red
+        #endif
     }
     
     func setupTableView() {

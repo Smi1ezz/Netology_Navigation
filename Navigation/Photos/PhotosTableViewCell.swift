@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import StorageService
+
 
 class PhotosTableViewCell: UITableViewCell {
     

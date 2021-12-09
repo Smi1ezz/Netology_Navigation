@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class PhotogalleryCollectionViewCell: UICollectionViewCell {
     
     let photo: UIImageView = {

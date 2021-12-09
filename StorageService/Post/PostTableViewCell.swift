@@ -7,9 +7,9 @@
 
 import UIKit
 
-class PostTableViewCell: UITableViewCell {
+public class PostTableViewCell: UITableViewCell {
     
-    var post: Post? {
+    public var post: Post? {
         didSet {
             postLabel.text = post?.author
             postImageView.image = UIImage.init(named: post?.image ?? "logo")
