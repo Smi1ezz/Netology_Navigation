@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class ProfileTableViewHeaderFooterView: UITableViewHeaderFooterView {
 
@@ -83,37 +84,35 @@ class ProfileTableViewHeaderFooterView: UITableViewHeaderFooterView {
         contentView.addSubview(statusTextField)
         contentView.addSubview(showStatusButton)
         
-        avatarImageView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            avatarImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
-            avatarImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            avatarImageView.widthAnchor.constraint(equalToConstant: 150),
-            avatarImageView.heightAnchor.constraint(equalTo: avatarImageView.widthAnchor),
-            
-        ])
+        for item in [nameLabel, avatarImageView, statusTextField, showStatusButton] {
+            item.translatesAutoresizingMaskIntoConstraints = false
+        }
         
-        nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            nameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 10),
-            nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            nameLabel.topAnchor.constraint(equalTo: avatarImageView.topAnchor, constant: 11)
-        ])
+        avatarImageView.snp.makeConstraints { make in
+            make.top.leading.equalToSuperview().offset(16)
+            make.width.height.equalTo(150)
+        }
         
-        statusTextField.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            statusTextField.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
-            statusTextField.trailingAnchor.constraint(equalTo: nameLabel.trailingAnchor),
-            statusTextField.bottomAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant:  -18)
-        ])
+        nameLabel.snp.makeConstraints { make in
+            make.top.equalTo(avatarImageView).offset(11)
+            make.leading.equalTo(avatarImageView.snp.trailing).offset(10)
+            make.trailing.equalToSuperview().offset(-16)
+        }
         
-        showStatusButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            showStatusButton.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 16),
-            showStatusButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            showStatusButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            showStatusButton.heightAnchor.constraint(equalToConstant: 50),
-            showStatusButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16)
-        ])
+        statusTextField.snp.makeConstraints { make in
+            make.leading.equalTo(nameLabel)
+            make.trailing.equalTo(nameLabel)
+            make.bottom.equalTo(avatarImageView).offset(-18)
+        }
+        
+        showStatusButton.snp.makeConstraints { make in
+            make.top.equalTo(avatarImageView.snp.bottom).offset(16)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
+            make.height.equalTo(50)
+            make.bottom.equalToSuperview().offset(-16)
+        }
+        
     }
     
     

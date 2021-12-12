@@ -6,20 +6,30 @@
 //
 
 import UIKit
+import iOSIntPackage
 
 public class PostTableViewCell: UITableViewCell {
+    
+    private var imageProcessor = ImageProcessor()
     
     public var post: Post? {
         didSet {
             postLabel.text = post?.author
             postImageView.image = UIImage.init(named: post?.image ?? "logo")
+            imageProcessor.processImage(
+                sourceImage: (postImageView.image ?? UIImage.init(named: "logo"))!,
+                filter: ColorFilter.allCases.randomElement() ?? .colorInvert,
+                completion: {
+                    filtredImg in postImageView.image = filtredImg
+                }
+            )
             postDescriptionLabel.text = post?.description
             likesCounterLabel.text = String("likes: \(post?.likes ?? 2)")
             viewsCounterLabel.text = String("views: \(post?.views ?? 2)")
         }
     }
     
-    let postLabel: UILabel = {
+    var postLabel: UILabel = {
         let postLabel = UILabel()
         postLabel.numberOfLines = 2
         postLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
@@ -101,7 +111,7 @@ public class PostTableViewCell: UITableViewCell {
             postImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             postImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             postImageView.widthAnchor.constraint(equalTo: contentView.widthAnchor),
-            postImageView.heightAnchor.constraint(equalTo: postImageView.heightAnchor),
+            postImageView.heightAnchor.constraint(equalTo: postImageView.widthAnchor),
             
             postDescriptionLabel.topAnchor.constraint(equalTo: postImageView.bottomAnchor, constant: 16),
             postDescriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),

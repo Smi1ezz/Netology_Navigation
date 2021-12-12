@@ -19,6 +19,7 @@ class ProfileViewController: UIViewController {
         navigationController?.navigationBar.isHidden = true
         setupTableView()
         
+        
         #if DEBUG
             view.backgroundColor = .lightGray
         #else
@@ -97,9 +98,9 @@ extension ProfileViewController: UITableViewDataSource {
         var result = UIView()
         if section == 0 {
             guard let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: "sectionHeader") as? ProfileTableViewHeaderFooterView else { return nil }
-
             result = view
         }
+        
         return result
     }
 
