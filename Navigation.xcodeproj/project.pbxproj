@@ -30,6 +30,7 @@
 		84CE2BFC276255CA009C5A87 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847FA4872688C529008112AB /* PostViewController.swift */; };
 		84CE2BFF27634D65009C5A87 /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 84CE2BFE27634D65009C5A87 /* iOSIntPackage */; };
 		84CE2C0227635499009C5A87 /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 84CE2C0127635499009C5A87 /* iOSIntPackage */; };
+		84CE2C0427673404009C5A87 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CE2C0327673404009C5A87 /* UserModel.swift */; };
 		84DBC15A271DA53300C309E5 /* PhotogalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBC159271DA53300C309E5 /* PhotogalleryCollectionViewCell.swift */; };
 		DF679CC30B954F59081E7853 /* Pods_StorageService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA516B5478A4649A6EF3D697 /* Pods_StorageService.framework */; };
 /* End PBXBuildFile section */
@@ -83,6 +84,7 @@
 		849582E4271979A10022E95B /* PhotogalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotogalleryViewController.swift; sourceTree = "<group>"; };
 		84CE2BDD27623DC1009C5A87 /* StorageService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StorageService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84CE2BDF27623DC1009C5A87 /* StorageService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StorageService.h; sourceTree = "<group>"; };
+		84CE2C0327673404009C5A87 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		84DBC159271DA53300C309E5 /* PhotogalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotogalleryCollectionViewCell.swift; sourceTree = "<group>"; };
 		85315AE53EF2F2D318EA39F6 /* Pods_Navigation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Navigation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA516B5478A4649A6EF3D697 /* Pods_StorageService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StorageService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -139,6 +141,7 @@
 				847FA4842688C481008112AB /* ProfileViewController.swift */,
 				847B4D0926AD8CBC0071522B /* LogInViewController.swift */,
 				847B4D1526D805440071522B /* ProfileTableViewHeaderFooterView.swift */,
+				84CE2C0327673404009C5A87 /* UserModel.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -432,6 +435,7 @@
 				847FA4852688C481008112AB /* ProfileViewController.swift in Sources */,
 				847FA4822688C473008112AB /* FeedViewController.swift in Sources */,
 				847FA46F26887D9F008112AB /* SceneDelegate.swift in Sources */,
+				84CE2C0427673404009C5A87 /* UserModel.swift in Sources */,
 				84DBC15A271DA53300C309E5 /* PhotogalleryCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

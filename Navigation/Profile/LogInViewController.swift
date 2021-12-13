@@ -71,6 +71,7 @@ class LogInViewController: UIViewController {
         scrollView.keyboardDismissMode = .onDrag
         containerView.translatesAutoresizingMaskIntoConstraints = false
         
+        loginTextField.delegate = self
         entranceStackView.addArrangedSubview(loginTextField)
         entranceStackView.addArrangedSubview(passTextField)
         scrollView.addSubview(containerView)
@@ -161,13 +162,25 @@ class LogInViewController: UIViewController {
     
     @objc func loginAction() {
 
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let newViewController = storyboard.instantiateViewController(withIdentifier: "ProfileID") as? ProfileViewController {
-            navigationController?.pushViewController(newViewController, animated: true)
-//            newViewController.modalPresentationStyle = .overCurrentContext // если убрать строку,  получится появление смахиваемого контроллера
-//            present(newViewController, animated: false, completion: nil)
-            
-           }
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        if let newViewController = storyboard.instantiateViewController(withIdentifier: "ProfileID") as? ProfileViewController {
+//            let user = User(name: "AAA", avatarImage: UIImage(named: "sergejzverev_27")!, statusText: "AAA")
+//            newViewController.currentUser = CurrentUserServise(user: user)
+//            navigationController?.pushViewController(newViewController, animated: true)
+//           }
+
+        
+        #if DEBUG
+        let testUser = TestUserService()
+        let newVC = ProfileViewController(currentUser: testUser, named: "TTT")
+        navigationController?.pushViewController(newVC, animated: true)
+        #else
+        let user = User(name: "Эдвард-Руки-Ножницы", avatarImage: UIImage(named: "sergejzverev_27")!, statusText: "AAA")
+        let currentUser = CurrentUserServise(user: user)
+        
+        let newVC = ProfileViewController(currentUser: currentUser, named: loginTextField.text ?? "DDD")
+        navigationController?.pushViewController(newVC, animated: true)
+        #endif
     }
     
     private func setupEntranceTextField(textField: UITextField) {
@@ -179,4 +192,11 @@ class LogInViewController: UIViewController {
     }
     
 }
-
+ 
+extension LogInViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        loginTextField.text = textField.text
+        resignFirstResponder()
+        return true
+    }
+}

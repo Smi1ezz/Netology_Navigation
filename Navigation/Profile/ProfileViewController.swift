@@ -13,7 +13,35 @@ class ProfileViewController: UIViewController {
     let tableView = UITableView(frame: .zero, style: .grouped)
     let postCellID = "PostCellID"
     let photosCellID = "PhotosCellID"
-         
+    
+    var currentUser: UserService?
+    private let user: User?
+    
+    init(currentUser: UserService, named: String) {
+        self.currentUser = currentUser
+        do {
+            try self.user = currentUser.checkUserName(name: named)
+
+            super.init(nibName: nil, bundle: nil)
+
+        } catch UserServiseError.invalidName {
+            self.user = nil
+            super.init(nibName: nil, bundle: nil)
+            print("Имя пользователя не совпадает. Попробуй еще раз")
+
+        } catch {
+            self.user = nil
+            super.init(nibName: nil, bundle: nil)
+            print("unknown error")
+
+        }
+        
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
@@ -43,8 +71,8 @@ class ProfileViewController: UIViewController {
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
-
     }
+    
 }
 
 extension ProfileViewController: UITableViewDelegate {
@@ -88,7 +116,8 @@ extension ProfileViewController: UITableViewDataSource {
     
     @objc func buttonClicked() {
         
-        if let vc = storyboard?.instantiateViewController(withIdentifier: "PhotogalleryViewController") {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let vc = storyboard.instantiateViewController(withIdentifier: "PhotogalleryViewController") as? PhotogalleryViewController {
             print("ok")
             navigationController?.pushViewController(vc, animated: true)
         }
@@ -98,6 +127,7 @@ extension ProfileViewController: UITableViewDataSource {
         var result = UIView()
         if section == 0 {
             guard let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: "sectionHeader") as? ProfileTableViewHeaderFooterView else { return nil }
+            view.nameLabel.text = user?.name ?? "Eddy-Lady"
             result = view
         }
         
