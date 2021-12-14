@@ -39,6 +39,15 @@ public struct Photogallery {
     ]
 }
 
+public var photogalleryStore: [UIImage]? = {
+    guard Photogallery.photos.count > 0 else { return nil }
+    var imgs = [UIImage]()
+    for image in Photogallery.photos {
+        imgs.append(UIImage(named: "\(image.image)")!)
+    }
+    return imgs
+}()
+
 let hz = ["ph1", "ph2", "ph3", "ph4", "ph5", "ph6", "ph7", "ph8", "ph9", "ph10","ph1", "ph2", "ph3", "ph4", "ph5", "ph6", "ph7", "ph8", "ph9", "ph10","ph11", "ph12", "ph13", "ph14", "ph15", "ph16", "ph17", "ph18", "ph19", "ph20"]
 
 

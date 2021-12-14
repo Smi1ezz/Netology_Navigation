@@ -7,9 +7,17 @@
 
 import UIKit
 import StorageService
+import iOSIntPackage
 
 class PhotogalleryViewController: UIViewController {
-
+    
+    private var imagesForGallery = [UIImage]()
+    
+    //MARK: инициализация Фасада
+    private let publisher = ImagePublisherFacade()
+    
+    private var photogalleryStore = StorageService.photogalleryStore
+    
     let collectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
@@ -22,6 +30,8 @@ class PhotogalleryViewController: UIViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = false
         setupCollectionView()
+        publisher.subscribe(self)
+        publisher.addImagesWithTimer(time: 1, repeat: 15, userImages: photogalleryStore)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -59,7 +69,8 @@ extension PhotogalleryViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Photogallery.photos.count
+//        return Photogallery.photos.count
+        return imagesForGallery.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -68,7 +79,8 @@ extension PhotogalleryViewController: UICollectionViewDataSource {
         if let safe = cell {
             safeCell = safe
         }
-        safeCell.photo.image = UIImage(named: Photogallery.photos[indexPath.item].image)
+//        safeCell.photo.image = UIImage(named: Photogallery.photos[indexPath.item].image)
+        safeCell.photo.image = imagesForGallery[indexPath.item]
         return safeCell
     }
 }
@@ -90,5 +102,12 @@ extension PhotogalleryViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("\(indexPath.section), \(indexPath.item)")
+    }
+}
+
+extension PhotogalleryViewController: ImageLibrarySubscriber {
+    func receive(images: [UIImage]) {
+        self.imagesForGallery = images
+        self.collectionView.reloadData()
     }
 }
