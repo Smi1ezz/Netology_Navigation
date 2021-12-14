@@ -15,6 +15,26 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
         guard let _ = (scene as? UIWindowScene) else { return }
+        
+        //MARK: инициализация LoginInspector
+        
+//        let loginInspector = LoginInspector()
+        
+        //MARK: инициализация Factory для задачи 2
+        
+        let myInspectorFactory = InspectorFactory()
+        
+        if let tabController = window?.rootViewController as? UITabBarController,
+           let loginNavigation = tabController.viewControllers?.last as? UINavigationController,
+           let loginController = loginNavigation.viewControllers.first as? LogInViewController {
+            
+//               loginController.delegate = loginInspector
+            
+            let loginInspector = myInspectorFactory.makeLoginIncpector()
+            loginController.delegate = loginInspector
+            
+        }
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

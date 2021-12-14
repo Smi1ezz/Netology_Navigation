@@ -15,7 +15,13 @@ extension UITextField {
     }
 }
 
+protocol LoginViewControllerDelegate: AnyObject {
+    func didEnterLogAndPass(login: String, password: String) -> Bool
+}
+
 class LogInViewController: UIViewController {
+    
+    weak var delegate: LoginViewControllerDelegate?
     
     let vkLogoImageView: UIImageView = {
         let vkLogoImageView = UIImageView ()

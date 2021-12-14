@@ -31,6 +31,9 @@
 		84CE2BFF27634D65009C5A87 /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 84CE2BFE27634D65009C5A87 /* iOSIntPackage */; };
 		84CE2C0227635499009C5A87 /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 84CE2C0127635499009C5A87 /* iOSIntPackage */; };
 		84CE2C0427673404009C5A87 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CE2C0327673404009C5A87 /* UserModel.swift */; };
+		84CE2C0727689461009C5A87 /* Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CE2C0627689461009C5A87 /* Checker.swift */; };
+		84CE2C0A2768991F009C5A87 /* LoginInspectorClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CE2C092768991F009C5A87 /* LoginInspectorClass.swift */; };
+		84CE2C0D27689E1F009C5A87 /* InspectorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CE2C0C27689E1F009C5A87 /* InspectorFactory.swift */; };
 		84DBC15A271DA53300C309E5 /* PhotogalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBC159271DA53300C309E5 /* PhotogalleryCollectionViewCell.swift */; };
 		DF679CC30B954F59081E7853 /* Pods_StorageService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA516B5478A4649A6EF3D697 /* Pods_StorageService.framework */; };
 /* End PBXBuildFile section */
@@ -85,6 +88,9 @@
 		84CE2BDD27623DC1009C5A87 /* StorageService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StorageService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84CE2BDF27623DC1009C5A87 /* StorageService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StorageService.h; sourceTree = "<group>"; };
 		84CE2C0327673404009C5A87 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		84CE2C0627689461009C5A87 /* Checker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checker.swift; sourceTree = "<group>"; };
+		84CE2C092768991F009C5A87 /* LoginInspectorClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInspectorClass.swift; sourceTree = "<group>"; };
+		84CE2C0C27689E1F009C5A87 /* InspectorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectorFactory.swift; sourceTree = "<group>"; };
 		84DBC159271DA53300C309E5 /* PhotogalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotogalleryCollectionViewCell.swift; sourceTree = "<group>"; };
 		85315AE53EF2F2D318EA39F6 /* Pods_Navigation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Navigation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA516B5478A4649A6EF3D697 /* Pods_StorageService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StorageService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -187,6 +193,9 @@
 		847FA46B26887D9F008112AB /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				84CE2C0B27689DEF009C5A87 /* InspectorFactory */,
+				84CE2C0827689906009C5A87 /* LoginInspector */,
+				84CE2C0527689161009C5A87 /* Checker */,
 				840A08082703712F00D0BC00 /* Photos */,
 				847B4D06269F3CFF0071522B /* Profile */,
 				849582E22715D55C0022E95B /* Feed */,
@@ -235,6 +244,30 @@
 				AA516B5478A4649A6EF3D697 /* Pods_StorageService.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		84CE2C0527689161009C5A87 /* Checker */ = {
+			isa = PBXGroup;
+			children = (
+				84CE2C0627689461009C5A87 /* Checker.swift */,
+			);
+			path = Checker;
+			sourceTree = "<group>";
+		};
+		84CE2C0827689906009C5A87 /* LoginInspector */ = {
+			isa = PBXGroup;
+			children = (
+				84CE2C092768991F009C5A87 /* LoginInspectorClass.swift */,
+			);
+			path = LoginInspector;
+			sourceTree = "<group>";
+		};
+		84CE2C0B27689DEF009C5A87 /* InspectorFactory */ = {
+			isa = PBXGroup;
+			children = (
+				84CE2C0C27689E1F009C5A87 /* InspectorFactory.swift */,
+			);
+			path = InspectorFactory;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -431,8 +464,11 @@
 				847FA46D26887D9F008112AB /* AppDelegate.swift in Sources */,
 				847B4D1626D805440071522B /* ProfileTableViewHeaderFooterView.swift in Sources */,
 				840A080A2703715E00D0BC00 /* PhotosTableViewCell.swift in Sources */,
+				84CE2C0727689461009C5A87 /* Checker.swift in Sources */,
+				84CE2C0D27689E1F009C5A87 /* InspectorFactory.swift in Sources */,
 				846DCF5F26961BD100C0E16C /* InfoViewController.swift in Sources */,
 				847FA4852688C481008112AB /* ProfileViewController.swift in Sources */,
+				84CE2C0A2768991F009C5A87 /* LoginInspectorClass.swift in Sources */,
 				847FA4822688C473008112AB /* FeedViewController.swift in Sources */,
 				847FA46F26887D9F008112AB /* SceneDelegate.swift in Sources */,
 				84CE2C0427673404009C5A87 /* UserModel.swift in Sources */,

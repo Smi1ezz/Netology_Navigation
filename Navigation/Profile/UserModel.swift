@@ -54,7 +54,7 @@ class CurrentUserServise: UserService {
 }
 
 class TestUserService: UserService {
-    private let testUser = User(name: "Test Name", avatarImage: UIImage(named: "logo") ?? UIImage(systemName: "info")!, statusText: "Test Status")
+    private let testUser = User(name: "Эдвард Руки-Ножницы test", avatarImage: UIImage(named: "logo") ?? UIImage(systemName: "info")!, statusText: "Test Status")
     
     func checkUserName(name: String) throws -> User {
         print("Режим Debug. Введенные параметры изменены на тестовые")
