@@ -11,16 +11,24 @@ protocol CheckProtocol {
     func check(login: String, password: String) -> Bool
 }
 
-class CheckerService: CheckProtocol {
+class CheckerModel: CheckProtocol {
     
-    static let instance = CheckerService.init(login: "Edward-Scissor-Hands", password: "StrongPassword")
+    static let instance = CheckerModel.init(login: "Edward-Scissor-Hands", password: "StrongPassword")
     
     private let login: String
     private let pswd: String
+    private let passToSeeImportantPost = "Пароль"
     
     private init(login: String, password: String) {
         self.login = login
         self.pswd = password
+    }
+    
+    func check(word: String) -> Bool {
+        if word == passToSeeImportantPost {
+            return true
+        }
+        return false
     }
     
     func check(login: String, password: String) -> Bool {

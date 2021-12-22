@@ -28,7 +28,7 @@
 		84CE2BFF27634D65009C5A87 /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 84CE2BFE27634D65009C5A87 /* iOSIntPackage */; };
 		84CE2C0227635499009C5A87 /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 84CE2C0127635499009C5A87 /* iOSIntPackage */; };
 		84CE2C0427673404009C5A87 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CE2C0327673404009C5A87 /* UserModel.swift */; };
-		84CE2C0727689461009C5A87 /* Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CE2C0627689461009C5A87 /* Checker.swift */; };
+		84CE2C0727689461009C5A87 /* CheckerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CE2C0627689461009C5A87 /* CheckerModel.swift */; };
 		84CE2C0A2768991F009C5A87 /* LoginInspectorClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CE2C092768991F009C5A87 /* LoginInspectorClass.swift */; };
 		84CE2C0D27689E1F009C5A87 /* InspectorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CE2C0C27689E1F009C5A87 /* InspectorFactory.swift */; };
 		84CE2C132769D9DC009C5A87 /* CustomButtonClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CE2C122769D9DC009C5A87 /* CustomButtonClass.swift */; };
@@ -45,6 +45,7 @@
 		84CE2C3E277323EB009C5A87 /* ImportantPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CE2C35277245A6009C5A87 /* ImportantPostView.swift */; };
 		84CE2C3F277323EE009C5A87 /* ImportantPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847FA4872688C529008112AB /* ImportantPostViewController.swift */; };
 		84CE2C40277323F0009C5A87 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847B4D0D26D41E550071522B /* PostTableViewCell.swift */; };
+		84CE2C452773577D009C5A87 /* HideKeyboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CE2C442773577D009C5A87 /* HideKeyboardExtension.swift */; };
 		84DBC15A271DA53300C309E5 /* PhotogalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBC159271DA53300C309E5 /* PhotogalleryCollectionViewCell.swift */; };
 		DF679CC30B954F59081E7853 /* Pods_StorageService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA516B5478A4649A6EF3D697 /* Pods_StorageService.framework */; };
 /* End PBXBuildFile section */
@@ -98,7 +99,7 @@
 		84CE2BDD27623DC1009C5A87 /* StorageService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StorageService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84CE2BDF27623DC1009C5A87 /* StorageService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StorageService.h; sourceTree = "<group>"; };
 		84CE2C0327673404009C5A87 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
-		84CE2C0627689461009C5A87 /* Checker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checker.swift; sourceTree = "<group>"; };
+		84CE2C0627689461009C5A87 /* CheckerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckerModel.swift; sourceTree = "<group>"; };
 		84CE2C092768991F009C5A87 /* LoginInspectorClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInspectorClass.swift; sourceTree = "<group>"; };
 		84CE2C0C27689E1F009C5A87 /* InspectorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectorFactory.swift; sourceTree = "<group>"; };
 		84CE2C122769D9DC009C5A87 /* CustomButtonClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonClass.swift; sourceTree = "<group>"; };
@@ -112,6 +113,7 @@
 		84CE2C2A27709A96009C5A87 /* TextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExtension.swift; sourceTree = "<group>"; };
 		84CE2C32277244C8009C5A87 /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
 		84CE2C35277245A6009C5A87 /* ImportantPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportantPostView.swift; sourceTree = "<group>"; };
+		84CE2C442773577D009C5A87 /* HideKeyboardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboardExtension.swift; sourceTree = "<group>"; };
 		84DBC159271DA53300C309E5 /* PhotogalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotogalleryCollectionViewCell.swift; sourceTree = "<group>"; };
 		85315AE53EF2F2D318EA39F6 /* Pods_Navigation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Navigation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA516B5478A4649A6EF3D697 /* Pods_StorageService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StorageService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -230,7 +232,6 @@
 		84CE2C0527689161009C5A87 /* Checker */ = {
 			isa = PBXGroup;
 			children = (
-				84CE2C0627689461009C5A87 /* Checker.swift */,
 			);
 			path = Checker;
 			sourceTree = "<group>";
@@ -293,6 +294,7 @@
 		84CE2C2F277232B6009C5A87 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				84CE2C0627689461009C5A87 /* CheckerModel.swift */,
 				84CE2C0327673404009C5A87 /* UserModel.swift */,
 				84CE2C32277244C8009C5A87 /* PostModel.swift */,
 			);
@@ -315,6 +317,7 @@
 		84CE2C31277232E5009C5A87 /* Resourses */ = {
 			isa = PBXGroup;
 			children = (
+				84CE2C432773575C009C5A87 /* HideKeyboardExtension */,
 				84CE2C24276C71E8009C5A87 /* ViewControllerFactory */,
 				84CE2C0827689906009C5A87 /* LoginInspector */,
 				84CE2C0B27689DEF009C5A87 /* InspectorFactory */,
@@ -323,6 +326,14 @@
 				84CE2C2927709A77009C5A87 /* TextFieldExtension */,
 			);
 			path = Resourses;
+			sourceTree = "<group>";
+		};
+		84CE2C432773575C009C5A87 /* HideKeyboardExtension */ = {
+			isa = PBXGroup;
+			children = (
+				84CE2C442773577D009C5A87 /* HideKeyboardExtension.swift */,
+			);
+			path = HideKeyboardExtension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -515,6 +526,7 @@
 			files = (
 				84CE2C1A276B581B009C5A87 /* ProfileRouter.swift in Sources */,
 				84CE2C33277244C8009C5A87 /* PostModel.swift in Sources */,
+				84CE2C452773577D009C5A87 /* HideKeyboardExtension.swift in Sources */,
 				84CE2C2B27709A96009C5A87 /* TextFieldExtension.swift in Sources */,
 				847B4D0A26AD8CBD0071522B /* LogInViewController.swift in Sources */,
 				849582E5271979A10022E95B /* PhotogalleryViewController.swift in Sources */,
@@ -526,7 +538,7 @@
 				847B4D1626D805440071522B /* ProfileTableViewHeaderFooterView.swift in Sources */,
 				840A080A2703715E00D0BC00 /* PhotosTableViewCell.swift in Sources */,
 				84CE2C21276B7325009C5A87 /* RouterProtocol.swift in Sources */,
-				84CE2C0727689461009C5A87 /* Checker.swift in Sources */,
+				84CE2C0727689461009C5A87 /* CheckerModel.swift in Sources */,
 				84CE2C0D27689E1F009C5A87 /* InspectorFactory.swift in Sources */,
 				846DCF5F26961BD100C0E16C /* InfoViewController.swift in Sources */,
 				847FA4852688C481008112AB /* ProfileViewController.swift in Sources */,

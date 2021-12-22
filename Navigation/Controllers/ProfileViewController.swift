@@ -101,7 +101,7 @@ extension ProfileViewController: UITableViewDataSource {
             if let thisTable = thisCell {
                 thisTable.photoFoto = Photogallery.photos[indexPath.row]
                 thisTable.myViewController = self
-                thisTable.arrowButton.butonTapped = {
+                thisTable.arrowButton.buttonTapped = {
                     let vc = PhotogalleryViewController()
                     return thisTable.myViewController?.navigationController?.pushViewController(vc, animated: true)
                 }
@@ -123,7 +123,7 @@ extension ProfileViewController: UITableViewDataSource {
             guard let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: "sectionHeader") as? ProfileTableViewHeaderFooterView else { return nil }
             view.nameLabel.text = user?.name ?? "error name"
 //            view.myViewController = self
-            view.showStatusButton.butonTapped = {
+            view.showStatusButton.buttonTapped = {
                 if let statusText = view.statusTextField.text {
                     guard statusText != "" else {
                         if let placeholderText = view.statusTextField.placeholder {

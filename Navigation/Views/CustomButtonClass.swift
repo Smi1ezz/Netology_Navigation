@@ -16,14 +16,14 @@ class CustomButton: UIButton {
     
     private var title: String
     private var myTintColor: UIColor?
-    var butonTapped: (()->Void?)?
+    var buttonTapped: (()->Void?)?
     
     let button = UIButton()
     
     init(title: String, tintColor: UIColor?, action: (()->Void?)? ) {
         self.title = title
         self.myTintColor = tintColor
-        self.butonTapped = action
+        self.buttonTapped = action
         super.init(frame: .zero)
         setupButton()
     }
@@ -39,7 +39,7 @@ class CustomButton: UIButton {
     }
     
     @objc private func buttonAction() {
-        guard let safeButonTapped = butonTapped else { return }
+        guard let safeButonTapped = buttonTapped else { return }
         safeButonTapped()
     }
     

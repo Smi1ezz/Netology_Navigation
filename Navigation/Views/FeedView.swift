@@ -12,23 +12,44 @@ class FeedView: UIView {
     
     weak var myController: UIViewController?
     
-//    private let firstButton: UIButton = {
-//        let button = UIButton()
-//        return button
-//    }()
+    private let label: UILabel = {
+       let label = UILabel()
+        label.text = "Введите пароль"
+        label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        label.textAlignment = .center
+        label.textColor = UIColor.black
+        return label
+    }()
     
-//    private let secondButton: UIButton = {
-//        let button = UIButton()
-//        return button
-//    }()
+    private let passwordTextField: UITextField = {
+        let passwordTextField = UITextField()
+        passwordTextField.placeholder = "Введите \"Пароль\""
+        passwordTextField.backgroundColor = UIColor(named: "Tab&NaviBarColor")
+        passwordTextField.layer.cornerRadius = 5
+        passwordTextField.layer.borderWidth = 1
+        passwordTextField.layer.borderColor = UIColor.lightGray.cgColor
+        passwordTextField.indent(size: 4)
+       return passwordTextField
+    }()
+    
+    let checkPasswordButton: CustomButton = {
+        let checkPasswordButton = CustomButton(title: "check", tintColor: .white, action: nil)
+        checkPasswordButton.setTitle("", for: .normal)
+        checkPasswordButton.setImage(UIImage(systemName: "checkmark.circle"), for: .normal)
+        checkPasswordButton.backgroundColor = UIColor(named: "ColorForPostButton")
+        checkPasswordButton.layer.cornerRadius = 5
+        return checkPasswordButton
+    }()
     
     let firstButton: CustomButton = {
-        let button = CustomButton(title: "tap to see inportand post", tintColor: .white, action: nil)
+        let button = CustomButton(title: "tap to see importand post", tintColor: nil, action: nil)
+
         return button
     }()
     
     let secondButton: CustomButton = {
-        let button = CustomButton(title: "tap to see wery inportand post", tintColor: .white, action: nil)
+        let button = CustomButton(title: "tap to see very importand post", tintColor: nil, action: nil)
+
         return button
     }()
     
@@ -51,25 +72,59 @@ class FeedView: UIView {
     }
     
     func setupView() {
+        passwordTextField.delegate = self
         setButtonStyle(button: firstButton)
         setButtonStyle(button: secondButton)
         stackView.addArrangedSubview(firstButton)
         stackView.addArrangedSubview(secondButton)
+        self.addSubview(label)
+        self.addSubview(passwordTextField)
+        self.addSubview(checkPasswordButton)
         self.addSubview(stackView)
         self.backgroundColor = .white
         setupConstraints()
     }
     
+    func wrongPassMakeLabelRed() {
+        label.textColor = .red
+    }
+    
+    func isTextFieldEmpty() -> Bool {
+        if passwordTextField.text == "" || passwordTextField.text == nil {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func textFromTextField() -> String? {
+        var result: String? = nil
+        if let safeTextFieldText = passwordTextField.text {
+            if !safeTextFieldText.isEmpty {
+                result = safeTextFieldText
+            }
+        }
+        return result
+    }
+    
+    func reloadTextFieldAndButtons() {
+        firstButton.setTitleColor(.systemGray, for: .normal)
+        firstButton.buttonTapped = nil
+        secondButton.setTitleColor(.systemGray, for: .normal)
+        secondButton.buttonTapped = nil
+        passwordTextField.text = nil
+    }
+    
     private func setButtonStyle(button: UIButton) {
         button.backgroundColor = UIColor(named: "ColorForPostButton")
-        button.titleLabel?.textColor = .white
+        button.setTitleColor(.systemGray, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 17)
         button.clipsToBounds = true
         button.layer.cornerRadius = 10
     }
     
     private func setupConstraints() {
-        for i in [stackView, firstButton, secondButton] {
+        for i in [stackView, firstButton, secondButton, passwordTextField, checkPasswordButton, label] {
             i.translatesAutoresizingMaskIntoConstraints = false
         }
         
@@ -85,6 +140,25 @@ class FeedView: UIView {
             make.centerX.equalToSuperview()
         }
         
+        passwordTextField.snp.makeConstraints { make in
+            make.bottom.equalTo(stackView.snp.top).offset(-20)
+            make.width.equalTo(180)
+            make.left.equalTo(firstButton)
+            make.height.equalTo(22)
+        }
+        
+        checkPasswordButton.snp.makeConstraints { make in
+            make.right.equalTo(firstButton.snp.right)
+            make.centerY.equalTo(passwordTextField)
+            make.height.equalTo(passwordTextField)
+            make.left.equalTo(passwordTextField.snp.right).offset(20)
+        }
+        
+        label.snp.makeConstraints { make in
+            make.bottom.equalTo(passwordTextField.snp.top).offset(-20)
+            make.centerX.equalTo(firstButton)
+        }
+        
         firstButton.snp.makeConstraints { make in
             make.height.equalTo(50)
             make.width.equalTo(250)
@@ -98,3 +172,15 @@ class FeedView: UIView {
     
 }
 
+extension FeedView: UITextFieldDelegate {
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        label.textColor = .black
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}

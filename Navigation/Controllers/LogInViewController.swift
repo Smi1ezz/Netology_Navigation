@@ -40,6 +40,8 @@ class LogInViewController: UIViewController {
         view.addSubview(loginScreenView)
         loginScreenView.myController = self
         loginScreenView.setupLoginScreenView()
+        self.hideKeyboard()
+
     }
     
     override func viewWillAppear(_ animated: Bool) {

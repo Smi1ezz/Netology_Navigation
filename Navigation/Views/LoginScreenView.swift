@@ -62,7 +62,7 @@ final class LoginScreenView: UIScrollView {
         self.backgroundColor = .white
         
         loginTextField.delegate = self
-        myLoginButton.butonTapped = myController?.didTapLogInButton
+        myLoginButton.buttonTapped = myController?.didTapLogInButton
 
         entranceStackView.addArrangedSubview(loginTextField)
         entranceStackView.addArrangedSubview(passTextField)
