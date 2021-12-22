@@ -9,6 +9,8 @@ import UIKit
 import SnapKit
 
 class ProfileTableViewHeaderFooterView: UITableViewHeaderFooterView {
+    
+    weak var myViewController: UIViewController?
 
     let avatarImageView: UIImageView = {
         let avatarImageView = UIImageView()
@@ -45,21 +47,19 @@ class ProfileTableViewHeaderFooterView: UITableViewHeaderFooterView {
         return statusTextField
     }()
     
-    let showStatusButton: UIButton = {
-        let showStatusButton = UIButton()
-        
+    //MARK: класс изменен на CustomButton для задания 6 - mvc
+    let showStatusButton: CustomButton = {
+        let showStatusButton = CustomButton(title: "Show status", tintColor: nil, action: nil)
+
         showStatusButton.backgroundColor = .blue
-        showStatusButton.setTitle("Show status", for: .normal)
         showStatusButton.setTitleColor(.white, for: .normal)
-        showStatusButton.addTarget(self, action: #selector(printStatusAction), for: .touchUpInside)
-        
         showStatusButton.layer.cornerRadius = 14
         showStatusButton.layer.shadowRadius = 4
         showStatusButton.layer.shadowOffset.width = 4
         showStatusButton.layer.shadowOffset.height = 4
         showStatusButton.layer.shadowColor = UIColor.black.cgColor
         showStatusButton.layer.shadowOpacity = 0.7
-        
+
         return showStatusButton
     }()
     
@@ -115,17 +115,4 @@ class ProfileTableViewHeaderFooterView: UITableViewHeaderFooterView {
         
     }
     
-    
-    @objc func printStatusAction() {
-        if let statusText = statusTextField.text {
-            guard statusText != "" else {
-                if let placeholderText = statusTextField.placeholder {
-                    return print("\(placeholderText)")
-                } else {
-                    return print("Пустовато тут. Даже плейсхолдера нет")
-                }
-            }
-            return print("\(statusText)")
-        }
-    }
 }

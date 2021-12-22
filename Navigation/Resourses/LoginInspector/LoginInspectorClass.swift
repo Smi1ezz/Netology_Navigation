@@ -13,6 +13,7 @@ class LoginInspector: LoginViewControllerDelegate {
     
     func didEnterLogAndPass(login: String, password: String) -> Bool {
         guard inspector.check(login: login, password: password) == true else {return false}
+        print("ОТЛИЧНО!!")
         return true
     }
     

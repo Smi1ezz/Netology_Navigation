@@ -11,6 +11,8 @@ import StorageService
 
 class PhotosTableViewCell: UITableViewCell {
     
+    weak var myViewController: UIViewController?
+    
     var photoFoto: Photo? {
         didSet {
             for i in [photo1,photo2,photo3,photo4] {
@@ -33,17 +35,16 @@ class PhotosTableViewCell: UITableViewCell {
         return cellLabel
     }()
     
-    let arrowButton: UIButton = {
-        let arrowButton = UIButton()
+    //MARK: класс изменен на CustomButton для задания 6 - mvc
+    let arrowButton: CustomButton = {
+        let arrowButton = CustomButton(title: "в галерею", tintColor: .black, action: nil)
+        
         arrowButton.setBackgroundImage(UIImage(systemName: "arrow.forward"), for: .normal)
         arrowButton.contentMode = .scaleAspectFill
         arrowButton.translatesAutoresizingMaskIntoConstraints = false
         arrowButton.tintColor = .black
-        
         return arrowButton
     }()
-    
-
     
     let photosStackView: UIStackView = {
         let photosStackView = UIStackView()

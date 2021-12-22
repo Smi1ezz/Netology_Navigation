@@ -12,7 +12,6 @@ class PhotogalleryCollectionViewCell: UICollectionViewCell {
     
     let photo: UIImageView = {
         let photo = UIImageView()
-//        photo.translatesAutoresizingMaskIntoConstraints = false
         photo.backgroundColor = .brown
         return photo
     }()

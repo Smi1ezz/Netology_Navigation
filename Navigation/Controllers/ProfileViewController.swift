@@ -47,7 +47,6 @@ class ProfileViewController: UIViewController {
         navigationController?.navigationBar.isHidden = true
         setupTableView()
         
-        
         #if DEBUG
             view.backgroundColor = .lightGray
         #else
@@ -101,7 +100,11 @@ extension ProfileViewController: UITableViewDataSource {
             let thisCell = tableView.dequeueReusableCell(withIdentifier: photosCellID) as? PhotosTableViewCell
             if let thisTable = thisCell {
                 thisTable.photoFoto = Photogallery.photos[indexPath.row]
-                thisTable.arrowButton.addTarget(self, action: #selector(buttonClicked), for: .touchUpInside)
+                thisTable.myViewController = self
+                thisTable.arrowButton.butonTapped = {
+                    let vc = PhotogalleryViewController()
+                    return thisTable.myViewController?.navigationController?.pushViewController(vc, animated: true)
+                }
                 cell = thisTable
             }
         } else if indexPath.section == 1 {
@@ -114,25 +117,31 @@ extension ProfileViewController: UITableViewDataSource {
         return cell
     }
     
-    @objc func buttonClicked() {
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let vc = storyboard.instantiateViewController(withIdentifier: "PhotogalleryViewController") as? PhotogalleryViewController {
-            print("ok")
-            navigationController?.pushViewController(vc, animated: true)
-        }
-    }
-    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        var result = UIView()
+        var headerProfile = UIView()
         if section == 0 {
             guard let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: "sectionHeader") as? ProfileTableViewHeaderFooterView else { return nil }
-            view.nameLabel.text = user?.name ?? "Eddy-Lady"
-            result = view
+            view.nameLabel.text = user?.name ?? "error name"
+//            view.myViewController = self
+            view.showStatusButton.butonTapped = {
+                if let statusText = view.statusTextField.text {
+                    guard statusText != "" else {
+                        if let placeholderText = view.statusTextField.placeholder {
+                            return print("\(placeholderText)")
+                        } else {
+                            return print("Пустовато тут. Даже плейсхолдера нет")
+                        }
+                    }
+                    return print("\(statusText)")
+                }
+                return nil
+            }
+            headerProfile = view
         }
         
-        return result
+        return headerProfile
     }
 
 }
+
 

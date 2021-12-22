@@ -12,11 +12,17 @@ import StorageService
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
-
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let windowScene = (scene as? UIWindowScene) else {return}
+        
+        let window = UIWindow(windowScene: windowScene)
+
+        window.backgroundColor = UIColor.white
+        window.rootViewController = MenuTabBarController()
+        window.makeKeyAndVisible()
+        self.window = window
         
         //MARK: инициализация LoginInspector
         
@@ -26,17 +32,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let myInspectorFactory = InspectorFactory()
         
-        if let tabController = window?.rootViewController as? UITabBarController,
-           let loginNavigation = tabController.viewControllers?.last as? UINavigationController,
-           let loginController = loginNavigation.viewControllers.first as? LogInViewController {
-            
-//               loginController.delegate = loginInspector
+        if let login = window.rootViewController?.presentedViewController as? LogInViewController {
             
             let loginInspector = myInspectorFactory.makeLoginIncpector()
-            loginController.delegate = loginInspector
-            
+            login.delegate = loginInspector
         }
-        
+            
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

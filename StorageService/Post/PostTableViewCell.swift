@@ -111,7 +111,7 @@ public class PostTableViewCell: UITableViewCell {
             postImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             postImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             postImageView.widthAnchor.constraint(equalTo: contentView.widthAnchor),
-            postImageView.heightAnchor.constraint(equalTo: postImageView.widthAnchor),
+            postImageView.heightAnchor.constraint(equalTo: postImageView.heightAnchor),
             
             postDescriptionLabel.topAnchor.constraint(equalTo: postImageView.bottomAnchor, constant: 16),
             postDescriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
