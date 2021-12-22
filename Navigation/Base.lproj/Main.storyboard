@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="D8r-pZ-fgE">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="D8r-pZ-fgE">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -31,51 +32,62 @@
             <objects>
                 <viewController id="Tq6-wb-6y5" customClass="FeedViewController" customModule="Navigation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uZh-eU-u2o">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ux-g0-06I">
-                                <rect key="frame" x="100" y="288" width="214" height="80"/>
-                                <color key="backgroundColor" red="0.12269271969999999" green="0.2784313725" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="E2D-l4-CqY"/>
-                                </constraints>
-                                <state key="normal" title="Very Important Post">
-                                    <color key="titleColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
-                                </state>
-                                <state key="highlighted">
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
-                                </state>
-                                <connections>
-                                    <action selector="pressButton:" destination="Tq6-wb-6y5" eventType="touchUpInside" id="3Dx-s3-eWO"/>
-                                    <segue destination="dx9-bl-fyt" kind="show" identifier="importantPost" id="SaM-gk-av4"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Wdx-8a-7Zv">
+                                <rect key="frame" x="40" y="387" width="310" height="70"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ax3-Ma-rdN">
+                                        <rect key="frame" x="0.0" y="0.0" width="310" height="30"/>
+                                        <color key="backgroundColor" red="0.6148123741" green="0.1017967239" blue="0.1002308354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Tap to see important post">
+                                            <color key="titleColor" systemColor="labelColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="pressToSeePost2:" destination="Tq6-wb-6y5" eventType="touchUpInside" id="pY4-xe-Xea"/>
+                                            <segue destination="dx9-bl-fyt" kind="show" identifier="fisrtButtonSeque" id="0qh-Vv-WoC"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hA0-Q9-77G">
+                                        <rect key="frame" x="0.0" y="40" width="310" height="30"/>
+                                        <color key="backgroundColor" red="0.6148123741" green="0.1017967239" blue="0.1002308354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Tap to see very important post">
+                                            <color key="titleColor" systemColor="labelColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="pressToSeePost:" destination="Tq6-wb-6y5" eventType="touchUpInside" id="Zub-lV-5mu"/>
+                                            <segue destination="dx9-bl-fyt" kind="show" identifier="fisrtButtonSeque" id="HP5-eL-nTh"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="EUF-Pn-eyp"/>
-                        <color key="backgroundColor" red="0.77647058820000003" green="0.2784313725" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemGray4Color"/>
                         <constraints>
-                            <constraint firstItem="7Ux-g0-06I" firstAttribute="top" secondItem="EUF-Pn-eyp" secondAttribute="top" constant="200" id="8PG-uy-51E"/>
-                            <constraint firstItem="EUF-Pn-eyp" firstAttribute="trailing" secondItem="7Ux-g0-06I" secondAttribute="trailing" constant="100" id="Gtw-dF-pSi"/>
-                            <constraint firstItem="7Ux-g0-06I" firstAttribute="leading" secondItem="EUF-Pn-eyp" secondAttribute="leading" constant="100" id="dQp-og-K9L"/>
+                            <constraint firstItem="Wdx-8a-7Zv" firstAttribute="centerX" secondItem="uZh-eU-u2o" secondAttribute="centerX" id="15A-aY-aOc"/>
+                            <constraint firstItem="Wdx-8a-7Zv" firstAttribute="leading" secondItem="EUF-Pn-eyp" secondAttribute="leading" constant="40" id="ZI5-Zb-Dfh"/>
+                            <constraint firstItem="Wdx-8a-7Zv" firstAttribute="centerY" secondItem="uZh-eU-u2o" secondAttribute="centerY" id="sDL-BB-F1D"/>
+                            <constraint firstItem="EUF-Pn-eyp" firstAttribute="trailing" secondItem="Wdx-8a-7Zv" secondAttribute="trailing" constant="40" id="x9i-vL-gVq"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Feed" id="9nc-Sx-pEk"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h7V-db-5GZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="892.75362318840587" y="-774.10714285714278"/>
+            <point key="canvasLocation" x="892.30769230769226" y="-774.17061611374402"/>
         </scene>
-        <!--Post View Controller-->
+        <!--Important Post View Controller-->
         <scene sceneID="HYX-QQ-o4X">
             <objects>
-                <viewController id="dx9-bl-fyt" customClass="PostViewController" customModule="Navigation" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="dx9-bl-fyt" customClass="ImportantPostViewController" customModule="Navigation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wMu-Be-geU">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="36ca24fbee042c363d8ce0b06f91f015" translatesAutoresizingMaskIntoConstraints="NO" id="ozV-vq-yTD">
-                                <rect key="frame" x="20" y="261" width="374" height="374"/>
+                                <rect key="frame" x="20" y="234.66666666666663" width="350" height="375"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="sja-5v-xwx"/>
@@ -104,14 +116,13 @@
             <objects>
                 <viewController id="OGV-5C-pcE" customClass="InfoViewController" customModule="Navigation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="T26-Ax-kBI">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gUM-s6-oBP">
-                                <rect key="frame" x="132" y="376" width="150" height="90"/>
+                                <rect key="frame" x="30" y="350" width="330" height="90"/>
                                 <color key="backgroundColor" red="0.6148123741" green="0.1017967239" blue="0.1002308354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="2vm-AV-KNP"/>
                                     <constraint firstAttribute="height" constant="90" id="V49-3k-FkM"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
@@ -124,12 +135,12 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bBH-bu-GlU"/>
-                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                        <color key="backgroundColor" systemColor="systemGray4Color"/>
                         <constraints>
+                            <constraint firstItem="gUM-s6-oBP" firstAttribute="leading" secondItem="bBH-bu-GlU" secondAttribute="leading" constant="30" id="4WS-UM-x9T"/>
+                            <constraint firstItem="bBH-bu-GlU" firstAttribute="trailing" secondItem="gUM-s6-oBP" secondAttribute="trailing" constant="30" id="7Ku-Na-g6R"/>
                             <constraint firstItem="gUM-s6-oBP" firstAttribute="centerY" secondItem="T26-Ax-kBI" secondAttribute="centerY" id="BNE-SG-DvQ"/>
-                            <constraint firstItem="gUM-s6-oBP" firstAttribute="centerX" secondItem="T26-Ax-kBI" secondAttribute="centerX" id="Q7a-6h-WGX"/>
                             <constraint firstItem="gUM-s6-oBP" firstAttribute="centerY" secondItem="T26-Ax-kBI" secondAttribute="centerY" id="aXE-0y-cj1"/>
-                            <constraint firstItem="gUM-s6-oBP" firstAttribute="centerX" secondItem="T26-Ax-kBI" secondAttribute="centerX" id="ebd-xO-2eY"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -143,7 +154,7 @@
                 <navigationController id="Arj-Zx-YZK" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Feed" image="list.bullet.indent" catalog="system" id="GFd-5f-AHc"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tN0-cJ-WAY">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -157,9 +168,9 @@
         <!--Profile-->
         <scene sceneID="amg-3d-9Sv">
             <objects>
-                <viewController id="nd5-cy-qz7" customClass="ProfileViewController" customModule="Navigation" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileID" id="nd5-cy-qz7" customClass="ProfileViewController" customModule="Navigation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RXT-gs-Hfk">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="7ML-gz-TTI"/>
                         <color key="backgroundColor" red="0.36862745099999999" green="0.66666666669999997" blue="0.6588235294" alpha="0.54901960780000003" colorSpace="calibratedRGB"/>
@@ -168,7 +179,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V2D-8j-RqU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="893" y="-78"/>
+            <point key="canvasLocation" x="1757" y="-78"/>
+        </scene>
+        <!--Log In View Controller-->
+        <scene sceneID="HR4-IL-9d6">
+            <objects>
+                <viewController id="yQ5-hB-bcc" customClass="LogInViewController" customModule="Navigation" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eKy-oU-Qmt">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="kw5-UB-OXM"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="1X9-nO-edU"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i6e-p0-5q3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="892" y="-78"/>
         </scene>
         <!--Profile-->
         <scene sceneID="fnA-lv-kXc">
@@ -176,34 +203,55 @@
                 <navigationController id="9Ks-Ok-xJF" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Profile" image="person" catalog="system" id="7kR-ed-erG"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Oxf-pB-t2S">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="nd5-cy-qz7" kind="relationship" relationship="rootViewController" id="PJB-vy-gFs"/>
+                        <segue destination="yQ5-hB-bcc" kind="relationship" relationship="rootViewController" id="jSa-Ou-Ga0"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2GR-lY-CjM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-120" y="-78"/>
         </scene>
+        <!--Photogallery-->
+        <scene sceneID="X7E-mC-I9t">
+            <objects>
+                <viewController storyboardIdentifier="PhotogalleryViewController" title="Photogallery" id="bvX-ua-Odv" customClass="PhotogalleryViewController" customModule="Navigation" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HAm-dl-Kqm">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="MgE-Tl-JCG"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="beA-aH-ebP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2695" y="-78"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="0qh-Vv-WoC"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="36ca24fbee042c363d8ce0b06f91f015" width="375" height="375"/>
         <image name="exclamationmark.triangle" catalog="system" width="128" height="112"/>
         <image name="list.bullet.indent" catalog="system" width="128" height="74"/>
         <image name="person" catalog="system" width="128" height="117"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemYellowColor">
-            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="tertiarySystemGroupedBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
